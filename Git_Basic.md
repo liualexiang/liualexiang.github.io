@@ -2,19 +2,19 @@
 
 ##### 初始化git
 在一个空目录下，初始化git
-Git init
+``` Git init ```
 
 在目录中放一些文件，然后添加到本地git中
-Git add .
+``` Git add . ```
 
 检查git状态
-Git status
+``` Git status ```
 
 要提交到远程仓库，那么必须先commit一下
-Git commit -m "first commit"
+``` Git commit -m "first commit" ```
 
 提交到远程仓库，如果没有配置远程地址，则会报错，解决办法请参考下面的步骤
-Git push origin 
+``` Git push origin ```
 
 ##### 配置github的key
 
@@ -23,7 +23,7 @@ Git push origin
 ``` ssh-keygen -t rsa -b 4096 -C "liualexiang@gmail.com" ```
 
 之后可以测试一下
- ssh -T git@github.com 
+``` ssh -T git@github.com ```
 
 添加remote origin:
 ``` git remote add origin https://github.com/liualexiang/aws_transcribe_catpions/  ```
