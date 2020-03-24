@@ -119,9 +119,10 @@ http://nginx_ip/
 sudo yum install mysql-devel
 pip install mysqlclient -i https://pypi.douban.com/simple  \\mysqlclient 依赖于mysql-devel
 ```
-这次把gunicorn放在后台(加上-D参数)
+这次把gunicorn放在后台(加上-D参数)，同时启用access_log和error_log
+
 ```
-gunicorn -w 10 --timeout 120 -b  0.0.0.0:6666 --limit-request-line 0 --limit-request-field_size 0 "superset.cli:create_app()" -D
+gunicorn -w 10 --timeout 120 -b  0.0.0.0:6666 --limit-request-line 0 --limit-request-field_size 0 "superset.cli:create_app()" --access-logfile access_log --error-logfile error_log -D
 ```
 
 添加mysql的数据源:
