@@ -6,9 +6,11 @@ Superset是一个airbnb贡献出开源的BI工具，在airbnb内部广泛使用�
 **生产环境，可以参考下面的方法部署**
 
 ##### 系统要求
+
 推荐内存4GB，硬盘20GB以上。
 Superset 只支持python3.6以上版本，不支持python2.7
 当前测试的superset版本为0.35.2
+本次测试机型：AWS宁夏区Amazon Linux2 (ami-0e08e7c3821193844)
 
 ##### 安装准备工具
 先升级安装一下安装工具
@@ -141,7 +143,7 @@ https://blog.csdn.net/liangkiller/article/details/101299753
 使用pip安装redis，这样Superset才能连到redis上
 ``` pip install redis -i https://pypi.douban.com/simple ```
 
-在PYTHONPATH路径下，创建一个superset_config.py文件。
+在PYTHONPATH路径下，创建一个[superset_config.py](https://github.com/apache/incubator-superset/blob/master/superset/config.py)文件.
 获取PYTHONPATH路径的方法：
 进入python3 shell
 
