@@ -127,6 +127,74 @@ gunicorn -w 10 --timeout 120 -b  0.0.0.0:6666 --limit-request-line 0 --limit-req
 
 最后可以在Sources中添加table，然后可以根据自己的需要构建Charts和Dashboard。
 
+
+* 关闭gunicorn进程
+  
+```
+ps aux | grep  "gunicorn" | grep -v 'grep' |  awk '{print $2}' | while read line; do kill -9 $line; done;
+
+也可以创建配置文件，将gunicorn放在系统服务中，参考:
+https://blog.csdn.net/liangkiller/article/details/101299753
+```
+
+##### 使用Redis做Cache，使用MySQL RDS做metastore
+使用pip安装redis，这样Superset才能连到redis上
+``` pip install redis -i https://pypi.douban.com/simple ```
+
+在PYTHONPATH路径下，创建一个superset_config.py文件。
+获取PYTHONPATH路径的方法：
+进入python3 shell
+
+```
+import sys
+print(sys.path)
+```
+
+在superset_config.py文件中，指定mysql和redis的地址端口以及用户名密码
+
+```
+SQLALCHEMY_DATABASE_URI = 'mysql://DB_USER:DB_PASSWORD@dbmysql.ckvg6d2mvjkp.rds.cn-northwest-1.amazonaws.com.cn/superset'
+CACHE_CONFIG = {
+        "CACHE_TYPE": "redis",
+        "CACHE_REDIS_URL": "redis://redis-log-cache.pe5q7k.0001.cnw1.cache.amazonaws.com.cn:6379/0",
+        "CACHE_KEY_PREFIX": "SUPERSET_",
+}
+```
+之后要重新初始化数据库
+```
+superset db upgrade
+export FLASK_APP=superset
+flask fab create-admin
+superset init
+```
+
+重新启动gunicorn进程:
+``` gunicorn -w 10 --timeout 120 -b  0.0.0.0:6666 --limit-request-line 0 --limit-request-field_size 0 "superset.cli:create_app()" -D ```
+
+创建database，table，chart，dashboard之后，登录到mysql和redis，可以看到已经有数据写入.
+
+##### Superset高可用
+创建另外一个superset，指定redis和mysql，然后前端挂载负载均衡器，测试当任意一台Superset宕机，另外一个superset都能正常提供服务，且之前创建的dashboard等信息依然保留。
+
+##### 故障排查
+在使用Superset和AWS Athena集成的时候，遇到botocore版本冲突的报错，具体报错信息为：
+pkg_resources.ContextualVersionConflict: (botocore 1.15.26 (/home/ec2-user/venv/lib/python3.7/site-packages), Requirement.parse('botocore<1.16.0,>=1.15.27'), {'boto3'})
+
+此时出问题的boto3和botocore版本为：
+```
+boto3                  1.12.27
+botocore               1.15.26
+```
+
+另外一台正常使用的boto3的版本为：
+```
+boto3                  1.12.26
+botocore               1.15.26
+```
+
+解决办法为：
+``` pip install boto3==1.12.26 --upgrade -i https://pypi.douban.com/simple ```
+
 ##### 参考资料
 https://superset.incubator.apache.org/installation.htm
 https://docs.gunicorn.org/en/stable/run.html#integration
