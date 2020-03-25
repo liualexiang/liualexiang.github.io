@@ -31,6 +31,16 @@
 然后进行push
 ``` git push origin master ```
 
+##### git 管理多个github repo
+在本地创建另外一个folder，在github上创建好repo
+```
+git init
+git remote add new_repo https://github.com/liualexiang/new_repo
+
+git remote //检查新增加的repo，在本路径下放一个文件，然后git add, git commit -m "ss"
+git push new_repo mster
+```
+
 ##### git 多分支合并
 暂不更新
 
