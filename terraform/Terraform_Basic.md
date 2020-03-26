@@ -153,3 +153,7 @@ resource "aws_instance" "terraform_test" {
 }
 
 ```
+
+
+##### 跟VS Code集成
+在VS Code中，可以搜索Terraform插件，能够实现编写tf文件的时候自动补全，且可以检查语法.
