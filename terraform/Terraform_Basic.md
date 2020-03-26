@@ -13,6 +13,7 @@ terraform destroy //删除terraform资源
 ```
 
 ##### Terraform 的基本配置
+###### 环境变量配置
 Terraform可以配置环境变量，也可以不配置。如果配置环境变量的话，可以将环境变量保存到variables.tf这个文件中。变量可以指定不同的数据类型，比如list，set, map等格式，详情参考： https://www.terraform.io/docs/configuration/variables.html
 
 示例配置文件
@@ -25,7 +26,7 @@ variable "profile" {
     default = "default"
 }
 ```
-
+###### tf文件编写指南 
 以与AWS集成为例，通过provider来指定云厂商
 ```
 provider "aws" {
@@ -155,5 +156,87 @@ resource "aws_instance" "terraform_test" {
 ```
 
 
+##### 使用 count 创建多个同一Resource
+
+[count](https://www.terraform.io/docs/configuration/resources.html#count-multiple-resource-instances-by-count) 比较适合于创建一样的多个资源，如果资源的部分参数不一样，可以用for each来创建.
+
+示例：创建3个vpc，就在resource中指定 count=3即可。在tag命名的时候，count.index默认是从0开始，因此可以count.index+1来指定从1开始。
+在output中，由于前面指定了count，有多个资源返回，可以用join Function将每一个vpc id通过逗号拼接起来。
+使用[formatlist](https://www.terraform.io/docs/configuration/functions/formatlist.html)，则可以将返回的每一个vpc id在处理的时候，加上指定的字符串"the vpc id is:"
+
+```
+provider "aws" {
+  profile = var.profile
+  region = var.region
+}
+
+resource "aws_vpc" "terraform_vpc" {
+  count =3
+  cidr_block = "192.168.0.0/16"
+  instance_tenancy = "default"
+
+  tags = {
+    Name = "terraform_vpc_${count.index + 1}"
+  }
+}
+
+
+/*
+output "vpc_id" {
+  value = join(",",aws_vpc.terraform_vpc.*.id)
+}
+*/
+
+output "vpc_id" {
+  value = join("\n", formatlist("the vpc id is: %s",aws_vpc.terraform_vpc.*.id))
+}
+
+```
+
+使用[for_each](https://www.terraform.io/docs/configuration/resources.html#for_each-multiple-resource-instances-defined-by-a-map-or-set-of-strings) 可以在创建每一个resource的时候，指定不同的参数，有关for_each，可以看这个blog: https://www.hashicorp.com/blog/hashicorp-terraform-0-12-preview-for-and-for-each/
+
+示例
+```
+provider "aws" {
+  profile = var.profile
+  region = var.region
+}
+resource "aws_vpc" "terraform_vpc" {
+
+  cidr_block = "192.168.0.0/16"
+  instance_tenancy = "default"
+
+  tags = {
+    Name = "terraform_vpc"
+  }
+}
+resource "aws_subnet" "public_subnets" {
+  for_each = {
+    "cn-north-1a" = 1 
+    "cn-north-1b" = 2
+  }
+  vpc_id = aws_vpc.terraform_vpc.id
+  availability_zone = each.key
+  cidr_block = cidrsubnet(aws_vpc.terraform_vpc.cidr_block, 8, each.value)
+
+  tags = {
+    Name = "terraform_subnet_${each.value}"
+  }
+}
+```
+
+
 ##### 跟VS Code集成
 在VS Code中，可以搜索Terraform插件，能够实现编写tf文件的时候自动补全，且可以检查语法.
+在使用的时候，遇到一些问题，比如v0.12.24的Terraform和VS Code Terraform 1.4.0 插件兼容有一些问题，无法直接识别 var.xxx 这种变量，要通过 ${"var.xxx"}的方式才能识别，但后者逐渐被Terraform淘汰。为解决这个问题，可以在VS code settigns.json中，启用 Terraform Language Server. 不过当前terraform index和 language server冲突，只建议启用一个，关闭 terraform index的话就无法自动补全了，这样做得不偿失，因此还是建议关闭 language server而启用index
+```
+    "terraform.languageServer": {
+        "enabled": false,
+        "args": []
+    },
+    "terraform.indexing": {
+        "enabled": true,
+        "liveIndexing": true
+        }
+
+```
