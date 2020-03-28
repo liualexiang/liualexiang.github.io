@@ -41,6 +41,10 @@ git remote //检查新增加的repo，在本路径下放一个文件，然后git
 git push new_repo mster
 ```
 
-##### git 多分支合并
-暂不更新
+##### git 日志与回滚
+```
+git log
+git reflog
+git reset --hard commit_id
+```
 
