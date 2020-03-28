@@ -116,3 +116,7 @@ resource "aws_instance" "terraform_test" {
     Name = "terraform_instance"
   }
 }
+
+output "superset_login_address" {
+  value = format("SuperSet login address is: http://%s", aws_instance.terraform_test[0].public_ip)
+}
