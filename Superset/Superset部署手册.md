@@ -198,8 +198,12 @@ botocore               1.15.26
 解决办法为：
 ``` pip install boto3==1.12.26 --upgrade -i https://pypi.douban.com/simple ```
 
-##### 使用terraform在AWS上一键部署superset
-链接：https://github.com/liualexiang/learninguide/tree/master/terraform/ec2_terraform_install
+
+##### 在AWS上使用CloudFromation部署SuperSet
+链接：https://github.com/liualexiang/learninguide/blob/master/Superset/Superset_CloudFormation/Superset_on_EC2.template
+
+##### 在AWS上使用terraform部署superset
+链接：https://github.com/liualexiang/learninguide/tree/master/Superset/Superset_on_EC2_Terraform
 
 ##### 参考资料
 https://superset.incubator.apache.org/installation.htm
