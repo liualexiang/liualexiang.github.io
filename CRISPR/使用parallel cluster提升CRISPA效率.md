@@ -8,7 +8,7 @@
   
 ##### 准备参考基因组和GuideRNA数据
 * 以人类参考基因组为例，数据包大概3GB，下载地址：wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.38_GRCh38.p12/GCF_000001405.38_GRCh38.p12_genomic.fna.gz
-* 准备guideRNA，路径/data/GCF_000001405.38_GRCh38.p12_genomic.fna： https://github.com/liualexiang/learninguide/blob/master/shared_data/input_sgRNA_ngg_aid_5000.txt
+* 准备guideRNA，路径/data/GCF_000001405.38_GRCh38.p12_genomic.fna： https://github.com/liualexiang/learninguide/blob/master/CRISPR/input_sgRNA_ngg_aid_5000.txt
 
   
 ##### cas-offinder单机使用方法
