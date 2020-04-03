@@ -60,8 +60,8 @@ cluster_template = casoffinder
 
 [aliases]
 ssh = ssh {CFN_USER}@{MASTER_IP} {ARGS}
-
 ```
+
 * 创建集群命令 ``` pcluster create casoffinder ```
 * 创建之后可以ssh到master node上
 
