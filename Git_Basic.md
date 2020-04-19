@@ -48,3 +48,16 @@ git reflog
 git reset --hard commit_id
 ```
 
+##### git repo搭建
+```
+# 示例：再home目录下创建一个 repos 目录，然后再这个目录下创建一个 app.git 目录，之后在app.git目录中执行命令
+git init --bare
+
+# 在另外一台机器上使用git clone之前的git repo中的内容(以下两种方法都可以)
+git clone ssh://username@ip/home/repos/app.git
+# git clone username@ip:/home/repos/app.git
+
+# 可以通过ssh-keygen在git server中的~/.ssh/authorized_keys文件中添加public key来实现无密钥登录
+
+
+```
