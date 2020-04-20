@@ -41,6 +41,22 @@ git remote //检查新增加的repo，在本路径下放一个文件，然后git
 git push new_repo mster
 ```
 
+
+##### Git 多分支管理
+```
+# 创建一个test分支
+git branch test
+# 切换到test分支
+git checkout test
+# 查看当前所在的分支
+git branch
+# 创建文件，然后提交到test分支
+touch aa
+git add .
+git commit -m "add aa file"
+git push origin test
+```
+
 ##### git 日志与回滚
 ```
 git log
