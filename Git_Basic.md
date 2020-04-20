@@ -77,3 +77,11 @@ git clone ssh://username@ip/home/repos/app.git
 
 
 ```
+
+
+##### github 配置ssh key
+在github个人settings中，SSH and GPG Keys中添加ssh public key，添加之后可以使用ssh测试下连通性
+
+```
+ssh -T git@github.com
+```
