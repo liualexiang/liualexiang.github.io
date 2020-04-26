@@ -10,7 +10,7 @@ Azure Service Principal 是Azure AD 中提供的一种身份验证功能，可�
  az ad sp credential reset --name $appId
 ```
 ##### 对Service Principal 进行授权
-上述步骤就已经创建了service principal，接下来在Subscripitons里面对其授权。选择当前活跃的subscription，然后点击Access control(IAM)，在check access里面可以搜一下 xiangliu-demo，会发现没有任何权限。然后点击Add a role assignment，role选择为 Contributor（这个role有权限创建资源，但没权限管理用户，如果想要所有权限，可以选择owner），Select里面搜索xiangliu-demo，之后选择Save保存。
+上述步骤就已经创建了service principal，接下来在Subscripitons里面对其授权。选择当前活跃的subscription，然后点击Access control(IAM)，在check access里面可以搜一下 xiangliu-demo，会发现没有任何权限。然后点击Add a role assignment，role选择为 Contributor（这个role有权限创建资源，但没权限在订阅中添加用户，如果想要所有权限，可以选择owner），Select里面搜索xiangliu-demo，之后选择Save保存。
 
 ##### 在Azure CLI中配置Service Principal
 先检查一下Azure CLI的配置情况
