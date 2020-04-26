@@ -26,7 +26,12 @@
 ``` ssh -T git@github.com ```
 
 添加remote origin:
-``` git remote add origin https://github.com/liualexiang/aws_transcribe_catpions/  ```
+``` 
+git remote add origin git@github.com:liualexiang/learninguide.git
+
+# 使用https方式的话不会走ssh key。
+git remote add origin https://github.com/liualexiang/aws_transcribe_catpions/ 
+ ```
 
 然后进行push
 ``` git push origin master ```
