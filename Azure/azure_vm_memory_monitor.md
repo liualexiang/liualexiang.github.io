@@ -14,6 +14,7 @@ GET GET https://management.azure.com/{resourceUri}/providers/microsoft.insights/
 ```
 az monitor metrics list --resource /subscriptions/5fb605ab-c16c-4184-8a02-fee38cc11b8c/resourceGroups/xiangliu_csa/providers/Microsoft.Compute/virtualMachines/win-ad --start-time 2020-05-21T06:10:00Z --end-time 2020-05-21T10:00:00Z --interval PT1M --namespace 'Azure.VM.Windows.GuestMetrics' --metric 'Memory\Available Bytes'
 ```
+
 ##### 示例：使用Azure CLI查询Linux指标
 * 截至目前为止(2020/05/26)，Azure Diagnostics settings 中无法将Linux VM的指标sink到Azure Monitor上，因此无法使用和Windows一样的方式获得操作系统内部指标。
 * 不过可以在Linux操作系统内安装telegraf软件，并且在Azure VM上配置Identity(配置Identity就类似于在VM上配置Azure service principal，这样Azure VM就有能力向Azure Monitor发布指标)，telegraf会将内存磁盘等指标信息发布到Azure Monitor上。具体配置可以参考文档：https://docs.microsoft.com/en-us/azure/azure-monitor/platform/collect-custom-metrics-linux-telegraf
