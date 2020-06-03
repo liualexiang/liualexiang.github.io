@@ -36,6 +36,25 @@ git remote add origin https://github.com/liualexiang/aws_transcribe_catpions/
 然后进行push
 ``` git push origin master ```
 
+##### 将远程git同步到本地
+```
+#在一个空文件夹下，初始化git
+git init
+
+# 添加远程repo
+git remote add master git@github.com:liualexiang/learninguide.git
+
+#取回数据
+git fetch origin
+
+# 此时ls直接看到是空的，checkout到master分支
+git checkout master
+
+# 再ls就看到了
+
+```
+
+
 ##### git 管理多个github repo
 在本地创建另外一个folder，在github上创建好repo
 ```
@@ -88,6 +107,7 @@ git clone ssh://username@ip/home/repos/app.git
 在github个人settings中，SSH and GPG Keys中添加ssh public key，添加之后可以使用ssh测试下连通性
 
 ```
+# git remote add origin git@github.com/username/repos
 ssh -T git@github.com
 
 ```
