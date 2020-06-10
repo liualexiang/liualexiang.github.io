@@ -25,6 +25,18 @@ Standard SSDs are designed to provide single-digit millisecond latencies and the
 * 首先要考虑VM支持最大的IOPS以及VM机型的网络带宽限制，如果机型选择过小，有可能系统瓶颈在VM上，而不在磁盘本身。
 * 要考虑使用多线程测试。在使用单线程测试的时候，每个线程发起IO请求，都要等这个IO完成之后才会进行下一个IO。经测试，每个IO的延时在2-3ms，因此单线程测试的时候，最高IOPS只能达到300--400左右，均为达到VM和Disk的瓶颈。这时候在fio命令中，可以通过 --numjobs 参数指定更高的线程数来突破此限制。
 
+##### 有关价格和费用
+Azure Standard HDD和Standard SSD会收取容量费以及IO费，Premium SSD的费用包含了容量和IO。因此在IO不是很高的情况下，一般Standard SSD要比Premium SSD便宜，但如果IO一直都很高，则会出现Standard SSD比Premium SSD贵的情况。
+示例：以Standard SSD E10 和Premium SSD P10 128GB进行价格比较，在每秒500 IOPS都打满的情况下，一个月的费用如下：
+E10：9.6 + 259.20 =  268.80 USD
+P10： 19.71 USD 
+从这里来看，E10会比P10明显高出很多。
+那么IO到底要在什么情况下才用E10比较合适呢？我们可以这样计算(19.71 - 9.6) = X * 3600 * 24 * 30/10000 * 0.002
+计算出来的X=19.50231
+
+也就是说对于128GB的Standard SSD来说，如果平均下来每秒的IOPS达到了20，那么使用Premium SSD会更便宜，而且SLA以及延时都会更低，且还能提供burst的性能。
+对数据库应用来说，往往使用Premium SSD会更划算。
+
 参考资料1：
 https://docs.microsoft.com/en-us/azure/virtual-machines/windows/disks-types
 
