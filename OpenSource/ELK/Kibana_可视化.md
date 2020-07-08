@@ -44,6 +44,13 @@ buckets 就是要做的分类，其中 buckets type选择 X-Axis，Aggregation �
 在创建dashboard的时候，点击add，除了添加之前在visualize 中保存的charts之外，还可以添加刚刚保存的search结果.
 
 
+* 创建Region Map类型的图表
+
+在ES/Kibana 5.5开始，Kibana支持了[Region Maps](https://www.elastic.co/cn/blog/region-maps-gauge-kibana)。以前的Tile Map只能在某个城市上，以圆圈大小来显示数据的多少，但如果想要以城市或者国家在地图上的颜色区分，整个国家或整个城市按颜色深浅来表示数据点的多少，那么可以用Region Map。使用Tile map需要对经纬度坐标保存成 geo_point类型，而Region Map则更友好，支持ISO 3166-1 alpha-2 和 ISO 3166-1 alpha-3的定义格式，可直接识别CN, TW, HK等string类型数据。   
+Region Map 的使用技巧如下(在7.8.0版本测试)：  
+打开Kibana，点击Maps，Create Map，然后点击Add layer，选择 EMS Boundaries(EMS  为 Elastic Maps Service缩写)，由于我们的测试数据来自于全球，所以Layer选择 World Countries，Add Layer，之后进入 Layer settings。  
+在Layer settings中，Name可以随便写，比如"SourceIP by Country"， Visibility 选择0--24，Opacity为透明度，选100%为完全不透明。Tooltip fields点击Add，选择ISO 3166-1 alpha-2 code。Terms Join中，选择Left field为 ISO3166-1 alpha-2 code，Right Source选择ES的index，Right field选择geoip.country_code2.keyword，则表示按国家来区分，之后再地图上就能看到效果了。   
+但此时所有的颜色都一致，想要根据数据点多少而显示不同的颜色，还需要在Layer Style中，将Fill color选为 By Value，select a field中选择 count of INDEX_NAME， AS number中可以选择颜色。如果想要设置边框，还可以在Border width中设置为固定宽度，或者动态宽度。
 
 
 [^_^]:
