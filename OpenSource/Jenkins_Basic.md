@@ -6,14 +6,16 @@ sudo yum install java -y
 ```
 
 2. 通过yum 安装jenkins  
+
 参考链接：https://www.cnblogs.com/stulzq/p/9291237.html  
+
 ```
 sudo wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
 sudo rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
 
 yum install jenkins
 
-sudo systemctl start jenkins
+sudo systemctl start jenkins  
 # 之后访问该机器的8080端口即可访问到Jenkins，默认密码在  /var/lib/jenkins/secrets/initialAdminPassword 这个路径，也可以在 /var/log/jenkins/jenkins.log 中看到
 ```
 
