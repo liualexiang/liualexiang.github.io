@@ -6,6 +6,7 @@
   https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#autoscale
 <br />
 
+
 * 直接创建pod(在先前版本的k8s创建的是deployment)  
    ``` kubectl run nginx --image=nginx ```
 <br />
@@ -17,6 +18,12 @@
 * 直接创建 deployment  
   ``` kubectl create deployment nginx --image=nginx ```
 <br />
+
+* 显示pod的label
+``` kubectl get pod --show-labels ```
+
+* 给 pod 打label
+``` kubectl label pod nginx-test-6557497784-2wwsq labeltest=labelvalue ```
 
 * 暴漏pod的端口为load balancer  
   ``` kubectl expose pod nginx --port 80 --target-port 80 --type LoadBalancer ```
@@ -36,3 +43,22 @@
 * [创建svc](nginx-dep-svc.yaml)
 * [创建hpa自动扩容](nginx-dep-hpa.yaml)
   
+
+##### k8s 证书管理
+
+* 通过cert-manager来管理证书  
+* cert-manager 是通过CRD(custom resource defination) 来管理证书， 会起几个cert-manager的pod，如果遇到问题，可以排查这几个pod状态。
+  https://cert-manager.io/docs/installation/kubernetes/
+<br />
+
+* 通过let's Encrypt自动申请证书。申请之后，可以用 kubectl get certificate 来查看申请到的证书，状态为Ready时表示可用
+  https://docs.microsoft.com/en-us/azure/aks/ingress-tls
+  <br />
+
+* 故障排查
+  
+ ``` 
+ kubectl get certificate
+ kubectl get certificaterequest
+ kubectl get clusterissuers
+ ```
