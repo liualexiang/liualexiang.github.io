@@ -62,3 +62,45 @@
  kubectl get certificaterequest
  kubectl get clusterissuers
  ```
+
+
+##### 切换kubeconfig
+
+* 默认kubeconfig保存在 ~/.kube/config 文件中，里面可以存多个集群的信息。
+  
+  ```
+  kubectl config current-context
+  kubectl config use-context CONTEXT_NAME
+  kubectl config get-contexts
+  kubectl config get-clusters
+  ```
+
+##### 管理coreDNS
+
+在先前k8s版本中，使用的是kube-dns，在k8s 1.12之后被CoreDNS替代。coreDNS是通过 [Corefile](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/) 管理的，不过在云平台托管的k8s中，可能无权限编辑 Corefile，需要添加自定义 configmap作为Corefile的补充。
+
+首先先看一下默认的配置:  
+```
+kubectl get configmaps --namespace=kube-system coredns -o yaml
+```
+
+添加自定义解析，将 www.example.org 解析到 11.22.33.44，需要注意的是：configmap的名字必须为 coredns-custom，这样CoreDNS才能识别，其他名字无法识别   
+```
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: coredns-custom # this is the name of the configmap you can overwrite with your changes
+  namespace: kube-system
+data:
+    test.override: | # you may select any name here, but it must end with the .override file extension
+          hosts example.org { 
+              11.22.33.44 www.example.org
+          }
+```
+
+之后需要重启coreDNS才能生效  
+```
+kubectl rollout restart -n kube-system deployment/coredns
+```
+
+
