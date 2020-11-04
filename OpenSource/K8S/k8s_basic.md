@@ -77,7 +77,28 @@
 
 ##### 管理coreDNS
 
-在先前k8s版本中，使用的是kube-dns，在k8s 1.12之后被CoreDNS替代。coreDNS是通过 [Corefile](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/) 管理的，不过在云平台托管的k8s中，可能无权限编辑 Corefile，需要添加自定义 configmap作为Corefile的补充。
+在先前k8s版本中，使用的是kube-dns，在k8s 1.12之后被CoreDNS替代。coreDNS是通过 [Corefile](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/) 管理的，可以通过编辑coredns的configmap来添加自定义dns条目   
+```
+kubectl edit configmap coredns -n kube-system
+```
+
+在corefile中添加下面的几项   
+```
+    example.org {
+      hosts {
+        11.22.33.44 www.example.org
+        fallthrough
+      }
+    }
+```
+
+然后可以起一个测试dns的pod来测一下解析
+```
+ kubectl apply -f https://k8s.io/examples/admin/dns/dnsutils.yaml
+```
+
+
+不过在云平台托管的k8s中，如Azure的AKS中，无权限编辑 Corefile，需要添加自定义 configmap作为Corefile的补充。
 
 首先先看一下默认的配置:  
 ```
