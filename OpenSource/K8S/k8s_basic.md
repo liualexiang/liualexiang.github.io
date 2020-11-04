@@ -77,7 +77,7 @@
 
 ##### 管理coreDNS
 
-在先前k8s版本中，使用的是kube-dns，在k8s 1.12之后被CoreDNS替代。coreDNS是通过 [Corefile](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/) 管理的，可以通过编辑coredns的configmap来添加自定义dns条目   
+在先前k8s版本中，使用的是kube-dns，在k8s 1.12之后被CoreDNS替代。coreDNS是通过 [Corefile](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/) 管理的，可以通过利用[hosts plugin](https://coredns.io/plugins/hosts/)编辑coredns的configmap来添加自定义dns条目   
 ```
 kubectl edit configmap coredns -n kube-system
 ```
