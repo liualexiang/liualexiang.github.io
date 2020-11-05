@@ -98,11 +98,23 @@ kubectl edit configmap coredns -n kube-system
 ```
 
 
-不过在云平台托管的k8s中，如Azure的AKS中，无权限编辑 Corefile，需要添加自定义 configmap作为Corefile的补充。
+不过在云平台托管的k8s中，如Azure的AKS中，无权限编辑 Corefile，以Azure为例，Azure提供的aks的coredns的deployment中，添加了对挂载的volume的支持，通过查看coredns的deployment可以看到，默认挂载了一个叫做 coredns-custom的ConfigMap，因此我们可以创建一个名为 coredns-custom的configmap，在这个configmap中来添加自定义DNS解析的条目.
 
 首先先看一下默认的配置:  
 ```
-kubectl get configmaps --namespace=kube-system coredns -o yaml
+kubectl describe deployment coredns -n kube-system
+
+
+  Volumes:
+   config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      coredns
+    Optional:  false
+   custom-config-volume:
+    Type:      ConfigMap (a volume populated by a ConfigMap)
+    Name:      coredns-custom
+    Optional:  true
+   tmp:
 ```
 
 添加自定义解析，将 www.example.org 解析到 11.22.33.44，需要注意的是：configmap的名字必须为 coredns-custom，这样CoreDNS才能识别，其他名字无法识别   
