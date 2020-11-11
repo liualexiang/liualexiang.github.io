@@ -14,7 +14,7 @@ alex@nsglogs:/usr/share/logstash/bin$ ./logstash-plugin list | grep geoip
 logstash-filter-geoip
 ```
 
-但logstash的GeoIP插件没有数据库文件，我们要自行下载GeoLite2数据库文件，并将其放在/usr/share/logstash/data/路径下（也可以是其他路径）  
+我们可以使用Logstash自带的数据库，位置为：/usr/share/logstash/vendor/bundle/jruby/2.5.0/gems/logstash-filter-geoip-6.0.3-java/vendor，如果想要更新数据库，也可以自行下载GeoLite2数据库文件，并将其放在/usr/share/logstash/data/路径下（也可以是其他路径）  
 
 ```
 alex@nsglogs:~$ ls /usr/share/logstash/data/
@@ -176,6 +176,57 @@ PUT /test-ip
 ```
 
 完成上述操作之后，在Kibana的索引里面，可以搜索一下geoip.coordinates，会发现其类型已经是 geo_points，然后创建一个Tile map，就能在地图上展示数据了。
+
+
+##### 分析Nginx access的示例
+
+* 注意：在Ubuntu 18.04系统下测试，logstash默认启动用户是logstash，没有权限访问nginx的日志目录/var/log/nginx，默认这个日志目录的用户是 www-data，组是 adm，可以将logstash用户加到adm组中 usermod -a -G adm logstash。检查是否添加成功命令： cat /etc/group | grep adm
+```
+filter {
+  grok {
+    match => {"message" => "%{COMBINEDAPACHELOG}"}
+  }
+  geoip {
+    source => "clientip"
+    database => "/usr/data/geolite2/GeoLite2-City.mmdb"
+    fields => ["region_name"]
+  }
+  useragent {
+    source => "agent"
+  }
+}
+```
+
+fields里面指定的region_name其实是中国的省份，这样在Kibana map中展示的时候，可以根据省份来展示数据。
+
+##### 使用if来判断，决定是否添加字段
+
+示例
+```
+input {
+ stdin{codec => "json"}
+}
+ filter {
+   split { field => "[request_http_headers]"}
+  if [request_http_headers][transaction-id] {
+     mutate {
+      add_field => {"xxxxx" => "%{[request_http_headers][transaction-id]}"}
+    }
+  }
+  else if [request_http_headers][raj] {
+    mutate {
+      add_field => {"yyyyy" => "%{[request_http_headers][raj]}"}
+    }
+  }
+}
+```
+
+测试数据
+
+```
+{ "request_http_headers": [ { "transaction-id": "1234" }, {"raj" : "test"} ] }
+```
+
 
 ##### 附录1：几个常用的ES命令
 

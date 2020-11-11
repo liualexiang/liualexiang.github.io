@@ -183,3 +183,9 @@
         GET http://ES_HOST:9200/cf_view/_shard_stores
         GET http://ES_HOST:9200/cf_view/_stats
        ```
+  
+      - Index Cache 控制
+        - 清除某个index的query cache:  POST http://elk.liuxianms.com:9200/cf_view/_cache/clear?query=true
+        - 清除某个index的shard requet cache: POST http://elk.liuxianms.com:9200/cf_view/_cache/clear?request=true
+        - 清除某个index的field data cache: POST http://elk.liuxianms.com:9200/cf_view/_cache/clear?fielddata=true
+        
