@@ -6,8 +6,8 @@
   * [虚拟内存](https://www.elastic.co/guide/en/elasticsearch/reference/master/vm-max-map-count.html): ES默认使用 mmapfs目录存储索引indices，默认值太小，需要增大 
    
   ```
-  sudo sysctl -w vm.max_map_count=262144
-  sudo syssctl -p
+  sudo sh -c 'echo vm.max_map_count=262144 >> /etc/sysctl.conf'
+  sudo sysctl -p
   cat /proc/sys/vm/max_map_count
   ```
 
@@ -158,6 +158,7 @@
                     }
                 }
             }' 
+        # 向 Index 中插入数据，有两种方式PUT和POST，PUT需要指定_id，但POST不用
         # 插入第一条记录
         curl --location --request PUT 'http://ES_HOST:9200/cf_view/_doc/1' \
             --header 'Content-Type:  application/json' \
@@ -184,8 +185,12 @@
         GET http://ES_HOST:9200/cf_view/_stats
        ```
   
-      - Index Cache 控制
-        - 清除某个index的query cache:  POST http://elk.liuxianms.com:9200/cf_view/_cache/clear?query=true
-        - 清除某个index的shard requet cache: POST http://elk.liuxianms.com:9200/cf_view/_cache/clear?request=true
-        - 清除某个index的field data cache: POST http://elk.liuxianms.com:9200/cf_view/_cache/clear?fielddata=true
-        
+      * Index Cache 控制
+        * 清除某个index的query cache:  POST http://elk.liuxianms.com:9200/cf_view/_cache/clear?query=true
+        * 清除某个index的shard requet cache: POST http://elk.liuxianms.com:9200/cf_view/_cache/clear?request=true
+        * 清除某个index的field data cache: POST http://elk.liuxianms.com:9200/cf_view/_cache/clear?fielddata=true
+        * 刷新/flush/synced flush/Forcemerge： POST _refresh, _flush, _flush/synced, _forcemerge
+
+
+
+
