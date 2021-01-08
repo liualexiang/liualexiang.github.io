@@ -283,6 +283,42 @@ spec:
           servicePort: 80
 ```
 
+#### 使用nginx 做为ingress controller(heml3)：
+
+```
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm install nginx-ingress ingress-nginx/ingress-nginx
+
+# create deployment and service
+kubectl create deployment nginxtest --image=nginx
+kubectl expose deployment nginxtest --port 80
+
+
+# create ingress and route the traffic to specify service
+
+cat << EOF | kubectl apply -f -
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx01-ingress
+spec:
+  rules:
+  - http:
+      paths:
+      - pathType: Prefix
+        path: "/"
+        backend:
+          service:
+            name: nginxtest
+            port:
+              number: 80
+EOF
+
+```
+
+
+
+
 #### 备注: K8s的一些基本知识
 * 使用Azure CNI的网络插件，每一个pod上的ip都直接用了网卡的ip。还有常见的几个网络插件如calico(三层), flannel (overlay)
 * Service的类型为Cluster, Nodepod, LoadBalancer，其中cluster模式只能在集群内通信，nodepod模式通过iptables上做了转发，该iptables在每一个node上都有，loadbalancer模式则直接利用了云厂商的4层负载均衡器
