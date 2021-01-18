@@ -285,6 +285,7 @@ spec:
 
 #### 使用nginx 做为ingress controller(heml3)：
 
+* 对于发布单一应用，可以创建一个ingress，然后发布应用的时候，默认就使用这个ingress
 ```
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm install nginx-ingress ingress-nginx/ingress-nginx
@@ -316,8 +317,99 @@ EOF
 
 ```
 
+* 如果应用比较多，每个应用要使用单独的ingress，那么可以通过ingress.class的方法指定.
+
+```
+helm install nginx-ingress ingress-nginx/ingress-nginx  --set kubernetes.io/ingress.class: nginx1
+
+# ingress Route的annotation中指定 ingress.class名字
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: nginx01-ingress-route
+  namespace: default
+  annotations:
+    kubernetes.io/ingress.class: nginx1
+spec:
+  rules:
+  - http:
+      paths:
+      - backend:
+          serviceName: nginx01
+          servicePort: 80
+        path: /
+```
+
+* 使用let's encrypt自动申请证书
+
+```
+helm install nginx-ingress ingress-nginx/ingress-nginx
+
+# 记录下public ip地址, 针对公网域名DNS，设置 *.domain.com 的A记录，指向 ingress public ip
+kubectl get services -o wide -w nginx-ingress-ingress-nginx-controller
+
+# 安装 cert-manager，它将自动向let's encrypt 申请证书
+kubectl label namespace default cert-manager.io/disable-validation=true
+helm repo add jetstack https://charts.jetstack.io
+helm repo update
+
+helm install \
+  cert-manager \
+  --version v0.16.1 \
+  --set installCRDs=true \
+  jetstack/cert-manager
+
+# 创建Cluster Issuer或Issuer。Issuer只在单一namespace可用，但ClusterIssuer可以跨namespace使用。我们这次就创建一个Cluster Issuer
+
+cat << EOF | kubectl apply -f -
+
+apiVersion: cert-manager.io/v1alpha2
+kind: ClusterIssuer
+metadata:
+  name: letsencrypt
+spec:
+  acme:
+    server: https://acme-v02.api.letsencrypt.org/directory
+    email: test@email.com
+    privateKeySecretRef:
+      name: letsencrypt
+    solvers:
+    - http01:
+        ingress:
+          class: nginx
+          podTemplate:
+            spec:
+              nodeSelector:
+                "kubernetes.io/os": linux
+EOF
 
 
+kubectl create deployment testnginx --image=nginx
+kubectl expose deployment testnginx --port=80
+
+cat << EOF | kubectl apply -f -
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: testweb-ingress
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt
+spec:
+  tls:
+  - hosts:
+    - testweb.liualexiang.com
+    secretName: testweb-tls
+  rules:
+  - host: testweb.liualexiang.com
+    http:
+      paths:
+      - backend:
+          serviceName: testnginx
+          servicePort: 80
+        path: /
+EOF
+```
+kubectl get ingress，获得ingress的HOSTS名字，然后浏览器https访问下，即可访问成功
 
 #### 备注: K8s的一些基本知识
 * 使用Azure CNI的网络插件，每一个pod上的ip都直接用了网卡的ip。还有常见的几个网络插件如calico(三层), flannel (overlay)
