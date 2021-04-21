@@ -35,8 +35,10 @@ message HelloReply {
 * 使用grpc_tools将.proto文件转换成python代码，下面的代码编译之后，会产生两个文件.  helloworld_pb2.py: 用来和 protobuf 数据进行交互, helloworld_pb2_grpc.py: 用来和 grpc 进行交互  
 ``` python -m grpc_tools.protoc --python_out=. --grpc_python_out=. -I. helloworld.proto ```
 
-* 最后需要编写一个 helloworld的gRPC实现，这个分服务器端和客户端。服务端会监听在50051端口，host一个gRPC(HTTP2)服务，客户端执行的时候，会向这个端口发起gRPC请求
+* 最后需要编写一个 helloworld的gRPC实现，这个分服务器端和客户端。服务端会监听在50051端口，host一个gRPC(HTTP2)服务，客户端执行的时候，会向这个端口发起gRPC请求   
+  
 a. 服务器端：hello_server.py  
+
 ``` 
 from concurrent import futures
 import time
@@ -66,10 +68,11 @@ def serve():
         server.stop(0)
 
 if __name__ == '__main__':
-serve()
+    serve()
 ```
 
 b.	客户端: hello_client.py  
+
 ```
 import grpc
 import helloworld_pb2
@@ -86,13 +89,13 @@ def run():
     print("Greeter client received: " + response.message)
 
 if __name__ == '__main__':
-run()
+    run()
 ```
 
 ## 使用WireShark对gRPC进行调试
 
 * 本次只考虑gRPC明文传输，不考虑TLS加密
-*在WireShark首选项中，Protocols中找到Protobuf，然后修改 Profocol Buffers search paths，将.proto 的文件夹，以及protobuf的库文件地址添加进去
+* 在WireShark首选项中，Protocols中找到Protobuf，然后修改 Profocol Buffers search paths，将.proto 的文件夹，以及protobuf的库文件地址添加进去
 ![wireshark](./img/wireshark_protobuf.jpg)
 
 本次测试参考了下文：https://www.jianshu.com/p/43fdfeb105ff?from=timeline&isappinstalled=0
