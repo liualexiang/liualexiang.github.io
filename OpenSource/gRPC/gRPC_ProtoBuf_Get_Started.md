@@ -2,7 +2,7 @@
 
 ## 协议网络传输层的理解
 gRPC是跑在HTTP2之上的（可以是明文的HTTP，不加TLS），protobuf可以通过gRPC协议进行传输，使用WireShark抓包分析如下
-![demo](./img/protobuf_grpc_wireshark_demo.jpg)
+![demo](./img/protobuf_grpc_wireshark.png)
 
 ## gRPC和Protobuf测试环境搭建：
 
@@ -96,7 +96,7 @@ if __name__ == '__main__':
 
 * 本次只考虑gRPC明文传输，不考虑TLS加密
 * 在WireShark首选项中，Protocols中找到Protobuf，然后修改 Profocol Buffers search paths，将.proto 的文件夹，以及protobuf的库文件地址添加进去
-![wireshark](./img/wireshark_protobuf.jpg)
+![wireshark](./img/protobuf_wireshark.png)
 
 本次测试参考了下文：https://www.jianshu.com/p/43fdfeb105ff?from=timeline&isappinstalled=0
 
