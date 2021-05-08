@@ -4,10 +4,10 @@
 Azure LB 不管什么模式，永远都是DSR(Direct Server Response)模式，具体说明如下：
 
 * 进来流量  
-Client --> LB --> 一组MUX形成一个ring --> 物理机Hyper-V --> Virtual Switch --> VTP (Virtual Filter Platform) --> Azure VM 
+Client --> LB --> 一组MUX形成一个ring --> 物理机Hyper-V --> Virtual Switch --> VFP (Virtual Filter Platform) --> Azure VM 
 
 * 出去流量  
-Azure VM --> VTP --> Internet
+Azure VM --> VFP --> Internet
 
 * 上述概念说明   
 
