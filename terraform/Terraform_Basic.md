@@ -26,6 +26,24 @@ variable "profile" {
     default = "default"
 }
 ```
+##### terraform中代码区间的说明
+
+* resource 指的是要创建什么资源，引用resource的输出，直接用resource.xxx就可以. 示例如下，引用name的时候需要指定 azurerm_resource_group.example_rg.name
+```
+resource "azurerm_resource_group" "example_rg" {
+  name     = "example-rgname"
+  location = "East US 2"
+}
+```
+* data 指的是获取现有的配置的属性，引用data的输出，要使用data.xxx.xxx这种方式，示例如下，引用name的时候要指定 data.azurerm_ssh_public_key.pub_key.name
+```
+data "azurerm_ssh_public_key" "pub_key" {
+    name = "alex"
+    resource_group_name = "xiangliu_csa"
+}
+```
+
+
 ###### tf文件编写指南 
 以与AWS集成为例，通过provider来指定云厂商
 ```
