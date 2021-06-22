@@ -68,6 +68,10 @@ provider "aws" {
   region = "${var.region}"
 }
 ```
+##### 创建多个资源
+
+* 可以在resource里面使用count来进行计数，然后通过 ${count.index} 变量来获取每一次的count的索引(从0开始)。如果创建的多个资源之间有依赖关系，比如创建了2个网卡，需要将2个网卡绑定到2个VM上，那么 count要一致。
+* 也可以使用for_each 来指定对应关系。比如上述的创建2个网卡，2个VM的例子，最佳做法是：将vm_name存成一个变量，然后创建网卡和虚拟机的时候，通过for_each(var.vm_name) 进行遍历，然后 name 则为 each.value。这样本身就有了对应关系。参考[示例](https://docs.rackspace.com/blog/create-a-vm-in-azure-by-using-terraform-with-for-loops/)脚本
 
 ##### 将结果通过output打印出来
 如果想要获得resource执行的结果，那么可以通过output进行打印，下面是一个示例，打印出新建的VPC的ID
