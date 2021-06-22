@@ -123,8 +123,6 @@ resource "azurerm_linux_virtual_machine" "tfvm01" {
     admin_username = "alex"
     network_interface_ids = [azurerm_network_interface.eni01[count.index].id]
 
-    
-
     admin_ssh_key {
         username = "alex"
         public_key = data.azurerm_ssh_public_key.pub_key.public_key
@@ -140,6 +138,9 @@ resource "azurerm_linux_virtual_machine" "tfvm01" {
         caching ="ReadWrite"
         storage_account_type = "Standard_LRS"
     }
+
+    custom_data = base64encode(file("bootstrap_init.sh"))
+
 
 }
 
