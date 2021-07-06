@@ -39,7 +39,7 @@ jobs:
         with:
           creds: ${{secrets.AZURE_CREDENTIALS}}
           environment: 'AzureCloud'
-          enable-AzPSSession: true
+          enable-AzPSSession: false
           allow-no-subscriptions: false
       - name: Azure CLI Script
         uses: azure/CLI@v1
