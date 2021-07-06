@@ -13,9 +13,7 @@
 * 示例：获取Azure VM的list。有关在workflow中配置azure creds的方法，参考[这里](!https://github.com/Azure/login)
 
 ```
-# This is a basic workflow to help you get started with Actions
-
-name: GitHubActionDemo01
+name: GitHubAction-Example01
 
 # Controls when the workflow will run
 on:
@@ -30,7 +28,20 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
+  getlocation:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Get GITHUB_WORKSPACE_LOCATION
+        run: echo $GITHUB_WORKSPACE
+  echotest:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Run a one-line script
+        run: echo Hello, world !
+      - name: Run a multi-line script
+        run: |
+          echo echo another line,
+          echo echo two more lines.
   build:
     # The type of runner that the job will run on
     runs-on: ubuntu-latest
@@ -40,24 +51,29 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      # Runs a set of commands using the runners shell
-      - name: Run a multi-line script
-        run: |
-          echo Add other actions to build,
-          echo test, and deploy your project.
       - name: Azure Login
         uses: azure/login@v1
         with:
           creds: ${{secrets.AZURE_CREDENTIALS}}
           environment: 'AzureCloud'
-      - name: Azure CLI Script
-        uses: azure/CLI@v1
-        with:
-          inclineScript: |
-            az vm list
+          enable-AzPSSession: false
+          allow-no-subscriptions: false
+      - name: Get AZ VM List
+        run: |
+          az vm list
+
 ```
 
+## 有关uses
+
+* 上述代码中的 uses: actions/checkout@v2，相当于 git clone 项目到本地，就不用自己写了，使用起来比较方便.
+
+* 从上述示例中也可以看出， uses可以从github的repo中下载和部署应用，这样就能在环境内配置自己的应用依赖了。比如我们可以用下面的这个示例来配置k8s的kubectl: https://github.com/steebchen/kubectl
+
+## 搜索github action
+
+在将Github的代码部署到某个地方的时候，很多时候网上都有各种大神写好了 actions的插件，可以搜索Github Actions Azure或者 Github Actions AWS，Github Actions Kubectl 等方法直接使用别人写好的插件。
+
+## 学习链接:
+https://docs.github.com/en/actions/quickstart
+https://blog.csdn.net/qq_39969226/article/details/106216566
