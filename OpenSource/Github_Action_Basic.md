@@ -10,7 +10,7 @@
 
 ## 一个Github Action的示例
 
-* 示例：获取Azure VM的list
+* 示例：获取Azure VM的list。有关在workflow中配置azure creds的方法，参考[这里](!https://github.com/Azure/login)
 
 ```
 # This is a basic workflow to help you get started with Actions
