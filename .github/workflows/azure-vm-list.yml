@@ -41,8 +41,11 @@ jobs:
           environment: 'AzureCloud'
           enable-AzPSSession: false
           allow-no-subscriptions: false
-      - name: Azure CLI Script
-        uses: azure/CLI@v1
-        with:
-          inclineScript: |
-            az vm list
+      - name: Get AZ VM List
+        run: |
+          az vm list
+      # - name: Azure CLI Script
+      #   uses: azure/CLI@v1
+      #   with:
+      #     inclineScript: |
+      #       az vm list
