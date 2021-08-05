@@ -5,7 +5,6 @@
 * 推荐使用ubuntu或者centos，不推荐使用amazon linux（在2019年10月份测试的时候，发现amazon linux 2安装不上opencl，不确定现在是否修复），本文以 ubuntu 16.04为例
 * 在EC2上，安装opencl，opencl可以在intel官网下载.
 * 在EC2上，下载安装 cas-offinder 软件，可以直接下载编译好的二进制包，无需使用源码编译。
-  
 ##### 准备参考基因组和GuideRNA数据
 * 以人类参考基因组为例，数据包大概3GB，下载地址：wget ftp://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/000/001/405/GCF_000001405.38_GRCh38.p12/GCF_000001405.38_GRCh38.p12_genomic.fna.gz
 * 准备guideRNA，路径/data/GCF_000001405.38_GRCh38.p12_genomic.fna： https://github.com/liualexiang/learninguide/blob/master/CRISPR/input_sgRNA_ngg_aid_5000.txt
@@ -68,7 +67,7 @@ ssh = ssh {CFN_USER}@{MASTER_IP} {ARGS}
 ##### 使用slurm 提交job
 * 在创建pcluster的时候，我们的调度器为slumr，可以通过slurm来提交作业。我们可以将之前的5000行guideRNA单个文件拆分成10个，以文件名为 input_sgRNA_ngg_aid_5000.txt1, input_sgRNA_ngg_aid_5000.txt2 为例.
 拆分文件的python脚本
-```
+```python
 file_name ='input_sgRNA_ngg_aid_5000.txt'
 
 with open(file_name, 'r') as f:
@@ -91,7 +90,7 @@ with open(file_name, 'r') as f:
 ```
 
 * 提交作业
-```
+```bash
 # 生成提交任务脚本:
 for i in `ls input_sgRNA_ngg_aid_5000*` ;do echo '#!/bin/sh' > $i.sh;echo "cas-offinder $i C /data/output/$i.output" >> $i.sh;chmod +x $i.sh; done
 # 提交任务:

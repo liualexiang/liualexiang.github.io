@@ -14,7 +14,7 @@
 
 #### 验证集群状态
 
-```
+```bash
 kubectl get nodes
 kubectl get svc
 kubectl get pod -n kube-system
@@ -24,7 +24,7 @@ kubectl get pod -n kube-system
 
 保存下面的文件为 nginx-dep.yaml，然后执行 kubectl apply -f nginx-dep.yaml
 
-```
+```yaml
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
@@ -52,7 +52,7 @@ spec:
 Storage Class定义了创建PV的时候卷的类型，PVC用于动态创建卷
 示例：创建一个managed premium disk的storage class。将下面代码复制为azure-premium-sc.yaml，然后执行 kubectl apply -f azure-premium-sc.yaml。下同，后续不再说明
 
-```
+```yaml
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
@@ -66,7 +66,7 @@ parameters:
 
 然后创建pvc
 
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -84,7 +84,7 @@ spec:
 
 手动挂载卷，需要记录下刚创建的卷Resource ID，在卷的属性界面可以看到，同时也要指定卷的名字，这个名字是在Azure Portal中看到的名字。
 
-```
+```yaml
 apiVersion: v1
 kind: Pod
 metadata:
@@ -108,12 +108,10 @@ spec:
         azureDisk:
           kind: Managed
           diskName: kubernetes-dynamic-pvc-07105594-8fca-4f01-90d9-13c2b6db9469
-          diskURI: /subscriptions/5fb605ab-c16c-4184-8a02-fee38cc11b8c/resourceGroups/mc_xiangliu_csa_xiangaks_eastus2/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-07105594-8fca-4f01-90d9-13c2b6db9469
+          diskURI: /subscriptions/5fb605ab-c16c-4184-8a02-fee38cc11b8c/resourceGroups/mc_xiangliu_csa_xiangaks_eastus2/providers/Microsoft.Compute/disks/kubernetes-dynamic-pvc-07105594-8fca-4f01-90d9-13c2b6db946但此时操作比较复杂，创建了pv之后，还需要检查下卷名字以及id。我们也可以在一个yaml文件中创建pvc和挂载卷的。
 ```
 
-但此时操作比较复杂，创建了pv之后，还需要检查下卷名字以及id。我们也可以在一个yaml文件中创建pvc和挂载卷的。
-
-```
+```yaml
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
@@ -146,7 +144,7 @@ spec:
 #### 创建Service，利用Azure Load Balancer将服务发布出去
 AKS创建的Load Balancer类型的SVC，默认情况下就是和api server共用同一个lb，不过会添加一个新的front ip address。在load balancer rules里面能够看到转发的具体规则
 
-```
+```yaml
 apiVersion: apps/v1 # for versions before 1.9.0 use apps/v1beta2
 kind: Deployment
 metadata:
@@ -185,7 +183,7 @@ spec:
 
 创建service principal, 将配置信息保存到parameters.json
 
-```
+```bash
 az ad sp create-for-rbac --skip-assignment -o json > auth.json
 appId=$(jq -r ".appId" auth.json)
 password=$(jq -r ".password" auth.json)
@@ -204,7 +202,7 @@ EOF
 
 * 下载ingress安装文件，创建一个新的resource group (创建az group deployment的过程会比较长，大概5分钟左右)
 
-```
+```bash
 wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingress/master/deploy/azuredeploy.json -O template.json
 
 resourceGroupName="MyIngressResourceGroup"
@@ -224,7 +222,7 @@ az group deployment create \
 
 * 设置AAD Pod Identity, 添加 application-gateway-kubernetes-ingress helm 包
 
-```
+```bash
 # helm init 可能会失败，提示helm init命令找不到，此时需要检查helm版本，helm 2需要针对helm设置单独的service account，需要helm init，但helm 3取消了这个功能，helm 3可以直接读取kube config
 kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/master/deploy/infra/deployment-rbac.yaml
 
@@ -236,8 +234,7 @@ helm repo update
 ```
 
 * 安装ingress controller helm chart
-  
-```
+```bash
 applicationGatewayName=$(jq -r ".applicationGatewayName.value" deployment-outputs.json)
 resourceGroupName=$(jq -r ".resourceGroupName.value" deployment-outputs.json)
 subscriptionId=$(jq -r ".subscriptionId.value" deployment-outputs.json)
@@ -250,7 +247,7 @@ wget https://raw.githubusercontent.com/Azure/application-gateway-kubernetes-ingr
 
 修改一下变量
 
-```
+```bash
 sed -i "s|<subscriptionId>|${subscriptionId}|g" helm-config.yaml
 sed -i "s|<resourceGroupName>|${resourceGroupName}|g" helm-config.yaml
 sed -i "s|<applicationGatewayName>|${applicationGatewayName}|g" helm-config.yaml
@@ -260,14 +257,14 @@ sed -i "s|<identityClientId>|${identityClientId}|g" helm-config.yaml
 
 开始安装
 
-```
+```bash
 helm install -f helm-config.yaml application-gateway-kubernetes-ingress/ingress-azure --generate-name
 ```
 
 
 首先先通过上一步创建nginx deployment，并通过lb将其发布出去，之后再创建application gw ingress
 
-```
+```yaml
 apiVersion: extensions/v1beta1
 kind: Ingress
 metadata:
@@ -286,7 +283,7 @@ spec:
 #### 使用nginx 做为ingress controller(heml3)：
 
 * 对于发布单一应用，可以创建一个ingress，然后发布应用的时候，默认就使用这个ingress
-```
+```bash
 helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
 helm install nginx-ingress ingress-nginx/ingress-nginx
 
@@ -319,7 +316,7 @@ EOF
 
 * 如果应用比较多，每个应用要使用单独的ingress，那么可以通过ingress.class的方法指定.
 
-```
+```yaml
 helm install nginx-ingress ingress-nginx/ingress-nginx  --set kubernetes.io/ingress.class: nginx1
 
 # ingress Route的annotation中指定 ingress.class名字
@@ -342,7 +339,7 @@ spec:
 
 * 使用let's encrypt自动申请证书
 
-```
+```bash
 helm install nginx-ingress ingress-nginx/ingress-nginx
 
 # 记录下public ip地址, 针对公网域名DNS，设置 *.domain.com 的A记录，指向 ingress public ip
@@ -415,5 +412,4 @@ kubectl get ingress，获得ingress的HOSTS名字，然后浏览器https访问�
 * 使用Azure CNI的网络插件，每一个pod上的ip都直接用了网卡的ip。还有常见的几个网络插件如calico(三层), flannel (overlay)
 * Service的类型为Cluster, Nodepod, LoadBalancer，其中cluster模式只能在集群内通信，nodepod模式通过iptables上做了转发，该iptables在每一个node上都有，loadbalancer模式则直接利用了云厂商的4层负载均衡器
 * 可以用application gateway替代ingress
-
 

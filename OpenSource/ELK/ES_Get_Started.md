@@ -4,7 +4,7 @@
 * 在ES配置的时候，建议增加下面的几个设置
   * [文件描述符](https://www.elastic.co/guide/en/elasticsearch/reference/master/file-descriptors.html): Linux默认对openfile的限制为1024，需要增大: ulimit -n 65536。也可以修改 /etc/security/limits.conf来增加设置 "* - nofile 65536"
   * [虚拟内存](https://www.elastic.co/guide/en/elasticsearch/reference/master/vm-max-map-count.html): ES默认使用 mmapfs目录存储索引indices，默认值太小，需要增大 
-   
+  
   ```
   sudo sh -c 'echo vm.max_map_count=262144 >> /etc/sysctl.conf'
   sudo sysctl -p
@@ -15,7 +15,6 @@
 * 启动ES的方法： ./bin/elasticsearch -p pid -d
 * 关闭ES的方法：kill -15 `cat pid`
 * ES 端口默认是 9200和9300。9200是HTTP用于外部通信；9300是TCP，用于集群间节点到节点之间的通信。
-  
 #### ES 与 SQL 概念上的差异
 
 | **SQL**          | **ElasticSearch** |
@@ -43,7 +42,7 @@
 * 对index的设置进行操作
   * 更新index的replicas数量  
   
-  ```
+  ```bash
   curl --location --request PUT 'http://ES_HOST:9200/cf_etf/_settings' \
     --header 'Content-Type:  application/json' \
     --header 'Accept:  application/json' \
@@ -56,7 +55,7 @@
 
   * 更新index的codec为 best_compression   
   
-  ```
+  ```bash
   curl --location --request PUT 'http://ES_HOST:9200/cf_etf/_settings' \
     --header 'Content-Type:  application/json' \
     --header 'Accept:  application/json' \
@@ -69,7 +68,7 @@
 
 * index template 模板
   * 创建一个模板(更新模板不会影响现有index)
-  ```
+  ```bash
   curl --location --request PUT 'http://ES_HOST:9200/_template/cf_etf_template' \
     --header 'Content-Type:  application/json' \
     --header 'Accept:  application/json' \
@@ -93,7 +92,7 @@
     * 示例: PUT/GET/DELETE/HEAD http://ES_HOST:9200/cf_etf/_alias/cf_etf_1 
     * _aliases 的这个API可以对index/indices 执行原子性操作，比如add，remove, remove_index
       * 示例:
-       ```
+       ```bash
         curl --location --request POST 'http://ES_HOST:9200/_aliases' \
         --header 'Content-Type:  application/json' \
         --header 'Accept:  application/json' \
@@ -106,7 +105,7 @@
        ```
       * 示例：零宕机重新建立索引 Reindexing:
         * 当前设计中，index设计可能不合理，比如，一些字段发生了变化，这时候就要重新建立索引。我们可以移除旧的index和alias之间的关联，然后创建alias和新的index的映射。这样，依然使用同样的alias，就能访问到新的index了.
-         ```
+         ```bash
         curl --location --request POST 'http://ES_HOST:9200/_aliases' \
             --header 'Content-Type:  application/json' \
             --header 'Accept:  application/json' \
@@ -141,7 +140,7 @@
          ```
       * 示例： 创建View
         * 在SQL中，View是一个SQL语句的别名，在ES中也是类似的，能够对ES中的数据做过滤、统计和删除等等 
-         ```
+         ```bash
         # 创建一个叫做 cf_view 的index，这里面影射了两个字段: symbol 和 category，数据类型都是 keyword
         curl --location --request PUT 'http://ES_HOST:9200/cf_view' \
             --header 'Content-Type:  application/json' \
@@ -190,7 +189,6 @@
         * 清除某个index的shard requet cache: POST http://elk.liuxianms.com:9200/cf_view/_cache/clear?request=true
         * 清除某个index的field data cache: POST http://elk.liuxianms.com:9200/cf_view/_cache/clear?fielddata=true
         * 刷新/flush/synced flush/Forcemerge： POST _refresh, _flush, _flush/synced, _forcemerge
-
 
 
 

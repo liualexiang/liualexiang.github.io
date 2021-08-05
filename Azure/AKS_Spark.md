@@ -12,13 +12,13 @@
 1.	创建AKS集群
 在Azure Portal上搜索”kubernete”，然后进入到AKS的管理界面，可根据向导快速创建一个AKS集群。本次示例我们采用了3个节点的Worker Node，机型为B2ms，网络模式为Basic (Kubenet)。有关创建集群和连接集群的步骤，您也可以参考本文档。成功创建之后，可以通过下面的命令看到AKS集群的信息，记录下master节点的地址。
 
-```
+```bash
 $ kubectl cluster-info
 ```
 
 2.	准备Spark环境。下载Spark安装文件，将其解压
 
-```
+```bash
 $ wget https://archive.apache.org/dist/spark/spark-2.4.6/spark-2.4.6-bin-hadoop2.7.tgz
 $ tar zxvf spark-2.4.6-bin-hadoop2.7.tgz
 $ cd spark-2.4.6-bin-hadoop2.7
@@ -26,27 +26,27 @@ $ cd spark-2.4.6-bin-hadoop2.7
 
 3.	创建Azure Container registries镜像仓库。在Azure Portal中搜索”container registries”，按默认参数创建一个镜像仓库。创建完成之后，再Access keys界面，点击Enable 启用Admin user，记录下repo的地址，用户名和密码，使用docker login登录到ACR，然后使用az cli将AKS集群和ACR进行关联。
 
-```
+```bash
 $ docker login REPO_URL --username USERNAME --password PASSWORD
 $ az aks update -n AKS_NAME-g RESOURCE_GROUP--attach-acr ACR_NAME
 ```
 
 4.	准备Spark Docker Image。创建spark image，并将其上传到Azure Container Registries镜像仓库中。其中-r 后面跟上一步创建的repo地址， -t后面跟版本号
 
-```
+```bash
 $ ./bin/docker-image-tool.sh -r xiangliurepo2.azurecr.io/spark -t v2.4.6 build
 $ ./bin/docker-image-tool.sh -r xiangliurepo2.azurecr.io/spark -t v2.4.6 push
 ```
 
 5.	创建运行Spark任务的service account，并绑定相应的role
 
-```
+```bash
 $ kubectl create serviceaccount spark
 $ kubectl create clusterrolebinding spark-role --clusterrole=edit --serviceaccount=default:spark --namespace=default
 ```
 6.	准备一个Spark应用jar包，将其传到Azure Blob上，权限设置为公网可访问。或者使用本次示例提供的jar包。
 
-```
+```bash
 $ ./bin/spark-submit \
    --master k8s://https://AKS_MASTER_ADDRESS:443 \
    --deploy-mode cluster \
@@ -62,7 +62,7 @@ $ ./bin/spark-submit \
 
 7.	在Spark任务执行的过程中，我们也可以通过port forward的方法，将driver的端口映射到本机来访问spark UI.
 
-```
+```bash
 $ kubectl port-forward spark-pi-xxxx-driver 4040:4040
 ```
 
@@ -71,12 +71,12 @@ $ kubectl port-forward spark-pi-xxxx-driver 4040:4040
 ##### 通过client mode访问到运行在AKS集群中的spark-shell
 从Spark 2.4.0开始，Spark原生支持在k8s上以client模式提交任务。但Spark executors必须能通过主机名和端口连接到Spark Driver上。Spark Driver既可以在物理机上运行，也可以跑在pod里面。为了使Spark executors 能够解析到spark driver的DNS名称，本次我们将创建一个ubuntu的pod，在pod中配置spark client的环境。
 创建ubuntu pod的命令为：
-```
+```bash
 kubectl run jump-ubuntu -it --image=ubuntu -- sh
 ```
 之后会自动进入到ubuntu pod的shell，接下来的命令全部都在ubuntu pod shell中输入
 
-```
+```bash
 cd /tmp
 apt update
 apt install -y wget openjdk-8-jdk curl dnsutils
@@ -123,7 +123,7 @@ bin/spark-shell \
 
 进入Spark Shell之后，就可以看到spark master的地址即为aks的地址，之后就可以通过交互式方法跑Spark的任务了
 
-```
+```scala
 scala> val range = spark.range(1000000)
 scala> range.collect()
 ```
@@ -136,14 +136,14 @@ K8s Operator 是K8s的一个扩展功能，通过K8S Operator可以通过自定�
 ##### 操作步骤：
 
 1.	在AKS集群上使用下面的命令部署Apache Spark Operator，部署完成之后可以通过kubectl get operators 命令来进行确认，PHASE显示为”Successed”则表示已部署成功
-```
+```bash
 $ curl -sL https://github.com/operator-framework/operator-lifecycle-manager/releases/download/0.16.1/install.sh | bash -s 0.16.1
 $ kubectl create -f https://operatorhub.io/install/radanalytics-spark.yaml
 $ kubectl get csv -n operators
 ```
 
 2.	将下面的内容保存成sparkdemo.yaml，然后执行 kubectl appy -f sparkdemo.yaml命令，将会创建一个master node，2个worker node的Spark集群.
-```
+```yaml
 apiVersion: radanalytics.io/v1
 kind: SparkCluster
 metadata:
@@ -158,7 +158,7 @@ spec:
 
 4.	接下来可以通过自己的应用，或者部署JupyterNotebook，或在pod中访问到spark master的地址，在访问的时候通过 –master k8s://my-spark-cluster:7077 的方式进行指定。  
 5.	您也可以通过SparkApplication直接向k8s集群提交spark任务，示例yaml如下：
-```
+```yaml
 apiVersion: radanalytics.io/v1
 kind: SparkApplication
 metadata:

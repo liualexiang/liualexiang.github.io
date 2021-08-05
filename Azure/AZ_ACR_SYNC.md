@@ -10,7 +10,7 @@
 
 ##### 同一个region内，不同的ACR Repo之间的copy
 
-```
+```python
 import logging,json
 import azure.functions as func
 
