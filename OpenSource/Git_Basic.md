@@ -23,21 +23,21 @@
 ``` ssh-keygen -t rsa -b 4096 -C "liualexiang@gmail.com" ```
 
 之后可以测试一下
-``` ssh -T git@github.com ```
+```ssh -T git@github.com ```
 
 添加remote origin:
-``` 
+``` bash
 git remote add origin git@github.com:liualexiang/learninguide.git
 
 # 使用https方式的话不会走ssh key。
 git remote add origin https://github.com/liualexiang/aws_transcribe_catpions/ 
- ```
+```
 
 然后进行push
 ``` git push origin master ```
 
 ##### 将远程git同步到本地
-```
+```bash
 #在一个空文件夹下，初始化git
 git init
 
@@ -57,7 +57,7 @@ git checkout master
 
 ##### git 管理多个github repo
 在本地创建另外一个folder，在github上创建好repo
-```
+```bash
 git init
 git remote add new_repo https://github.com/liualexiang/new_repo
 
@@ -67,7 +67,7 @@ git push new_repo mster
 
 
 ##### Git 多分支管理
-```
+```bash
 # 创建一个test分支
 git branch test
 # 切换到test分支
@@ -79,6 +79,23 @@ touch aa
 git add .
 git commit -m "add aa file"
 git push origin test
+
+# 对分支进行merge，先看一下branch
+git branch
+# 切换到main分支上
+git checkout main
+# 将master分支merge到main分支（也就是将master分支的内容复制到main分支，将main分支作为汇总）
+git merge master
+
+# 删除远程的分支
+git branch -a # 先看下远程分支，比如看到的结果如下，既有本地分支，又有远程分支
+
+* main
+  remotes/origin/main
+  remotes/origin/master
+  
+# 此时我们要删除远程origin下的master分支，命令为 
+git push origin --delete master
 ```
 
 ##### git 日志与回滚
