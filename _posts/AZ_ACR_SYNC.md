@@ -1,7 +1,7 @@
 ---
 author: liualexiang
 title: Azure Container Registries 镜像同步
-date: 2021-1-1 14:00:00
+date: 2021-1-1
 ---
 - [Azure Container Registries 镜像同步](#azure-container-registries-镜像同步)
   - [创建Azure Function](#创建azure-function)
