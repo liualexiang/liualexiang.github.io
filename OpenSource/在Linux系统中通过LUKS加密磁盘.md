@@ -1,3 +1,10 @@
+---
+author: liualexiang
+title:LUKS 介绍
+---
+- [LUKS 介绍](#luks-介绍)
+- [使用LUKS加密非系统卷](#使用luks加密非系统卷)
+- [帮助](#帮助)
 #### LUKS 介绍
 LUKS(Linux Unified Key Setup)为Linux硬盘分区加密提供了一种标准，它不仅能通用于不同的
 Linux发行版本，还支持多用户/口令。因为它的加密密钥独立于口令，所以如果口令失密，我们可以

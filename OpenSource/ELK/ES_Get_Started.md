@@ -1,3 +1,10 @@
+---
+author: liualexiang
+title:部署ElasticSearch
+---
+- [部署ElasticSearch](#部署elasticsearch)
+- [ES 与 SQL 概念上的差异](#es-与-sql-概念上的差异)
+- [ES Index API](#es-index-api)
 #### 部署ElasticSearch
 * 安装Java，注意设置JAVA_HOME, Ubuntu 18.04使用 sudo apt install openjdk-8-jre-headless 安装的java路径为 /usr/lib/jvm/java-1.8.0-openjdk-amd64
 * 默认ES是处于开发模式，只能从localhost访问，如果改了network.host，就变成了生产模式，在生产模式下，对于一些配置有一定的要求，如果配置不满足要求，则直接报错，服务不会起来。在开发模式下，设置不合理，会出现警告级别报警，但服务能起来。

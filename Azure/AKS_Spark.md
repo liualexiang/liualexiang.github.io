@@ -1,3 +1,14 @@
+---
+author: liualexiang
+title:在AKS平台上轻松运行Spark应用
+---
+- [在AKS平台上轻松运行Spark应用](#在aks平台上轻松运行spark应用)
+  - [前言](#前言)
+  - [方法一：通过AKS 的API Server直接提交Spark任务](#方法一通过aks-的api-server直接提交spark任务)
+    - [通过Spark-Submit向AKS集群提交Spark 任务](#通过spark-submit向aks集群提交spark-任务)
+    - [通过client mode访问到运行在AKS集群中的spark-shell](#通过client-mode访问到运行在aks集群中的spark-shell)
+  - [方法二：使用Spark Operator在AKS里面运行Spark集群](#方法二使用spark-operator在aks里面运行spark集群)
+    - [操作步骤：](#操作步骤)
 ### 在AKS平台上轻松运行Spark应用
 #### 前言
 在当今互联网和移动应用快速发展的浪潮下，大数据和微服务应用也受到越来越多技术人员的青睐，其中Spark 和Kubernetes 容器管理平台几乎是每一个技术人员必备的技能。如何快速部署集群，如何安全高效的运维，是否可以将大数据平台和容器管理平台有效的结合起来，也是很多人一直以来探索和研究的一个方向。本文我们将和大家一起来探索在Azure Kubernetes Services上部署和运行Spark 应用的两种方式。

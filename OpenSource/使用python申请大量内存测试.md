@@ -1,3 +1,10 @@
+---
+author: liualexiang
+title:python申请内存
+---
+- [python申请内存](#python申请内存)
+- [taskset指定任务跑在那颗cpu上](#taskset指定任务跑在那颗cpu上)
+- [验证单颗cpu申请20GB内存](#验证单颗cpu申请20gb内存)
 ##### python申请内存
 申请内存的方法很简单，可以复制字符“a”指定次数，即可占用系统指定的内存，将下面命令保存成 test.py 脚本
 ```

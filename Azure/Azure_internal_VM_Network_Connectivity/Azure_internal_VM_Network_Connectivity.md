@@ -1,3 +1,10 @@
+---
+author: liualexiang
+title:Azure VM抓包说明
+---
+- [Azure VM抓包说明](#azure-vm抓包说明)
+- [抓包解读](#抓包解读)
+- [结论：](#结论)
 ### Azure VM抓包说明
 * [internal_vm.pcap](internal_vm.pcap) 是一个纯内网的VM，没有public IP
 * [nginx_server.pcap](nginx_server.pcap) 是一个公网VM，其公网IP为 52.247.123.17

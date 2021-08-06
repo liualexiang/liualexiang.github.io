@@ -1,3 +1,13 @@
+---
+author: liualexiang
+title:Azure Container Registries 镜像同步
+---
+- [Azure Container Registries 镜像同步](#azure-container-registries-镜像同步)
+  - [创建Azure Function](#创建azure-function)
+  - [配置 VS Code Extension](#配置-vs-code-extension)
+  - [上传代码到Function](#上传代码到function)
+  - [代码实现](#代码实现)
+    - [同一个region内，不同的ACR Repo之间的copy](#同一个region内不同的acr-repo之间的copy)
 ### Azure Container Registries 镜像同步
 
 #### 创建Azure Function

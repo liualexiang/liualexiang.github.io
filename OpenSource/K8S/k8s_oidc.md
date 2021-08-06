@@ -1,3 +1,14 @@
+---
+author: liualexiang
+title:使用Google OIDC的方式访问k8s
+---
+- [使用Google OIDC的方式访问k8s](#使用google-oidc的方式访问k8s)
+  - [背景](#背景)
+  - [创建OIDC](#创建oidc)
+  - [修改master node的kube-api](#修改master-node的kube-api)
+  - [使用kubectl进行认证的时候，我们需要用 k8s-oidc-helper 来产生一个token，并将其存放在 ~/.kube/config 文件中](#使用kubectl进行认证的时候我们需要用-k8s-oidc-helper-来产生一个token并将其存放在-kubeconfig-文件中)
+  - [创建clusterrole和rolebinding(测试k8s 1.19)](#创建clusterrole和rolebinding测试k8s-119)
+  - [验证](#验证)
 #### 使用Google OIDC的方式访问k8s
 ##### 背景
 本次使用kubeadm自建2个节点的k8s集群，以及通过google提供的OIDC身份提供商做验证

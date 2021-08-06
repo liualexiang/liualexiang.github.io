@@ -1,3 +1,12 @@
+---
+author: liualexiang
+title:通过CMI提供的Express Route将国内外Azure打通
+---
+- [通过CMI提供的Express Route将国内外Azure打通](#通过cmi提供的express-route将国内外azure打通)
+  - [新加坡Express Route设置](#新加坡express-route设置)
+  - [国内北二区域设置](#国内北二区域设置)
+  - [性能报告](#性能报告)
+  - [北一区借助于北二区的VPN Gateway以及CMI线路跟新加坡VNET打通](#北一区借助于北二区的vpn-gateway以及cmi线路跟新加坡vnet打通)
 #### 通过CMI提供的Express Route将国内外Azure打通
 本次示例新加坡创建Express Route和CMI打通，北京北部2区域通过VPN Gateway和CMI打通
 

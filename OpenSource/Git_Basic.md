@@ -1,3 +1,16 @@
+---
+author: liualexiang
+title:Git 最基本的几个命令
+---
+- [Git 最基本的几个命令](#git-最基本的几个命令)
+  - [初始化git](#初始化git)
+  - [配置github的key](#配置github的key)
+  - [将远程git同步到本地](#将远程git同步到本地)
+  - [git 管理多个github repo](#git-管理多个github-repo)
+  - [Git 多分支管理](#git-多分支管理)
+  - [git 日志与回滚](#git-日志与回滚)
+  - [git repo搭建](#git-repo搭建)
+  - [github 配置ssh key](#github-配置ssh-key)
 #### Git 最基本的几个命令
 
 ##### 初始化git

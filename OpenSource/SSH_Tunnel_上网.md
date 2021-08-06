@@ -1,3 +1,12 @@
+---
+author: liualexiang
+title:配置SSH Tunnel访问网站
+---
+- [配置SSH Tunnel访问网站](#配置ssh-tunnel访问网站)
+  - [快速配置ssh tunnel](#快速配置ssh-tunnel)
+  - [智能浏览的配置](#智能浏览的配置)
+  - [浏览器插件](#浏览器插件)
+  - [MacOS X全局代理的配置](#macos-x全局代理的配置)
 #### 配置SSH Tunnel访问网站
 
 ##### 快速配置ssh tunnel

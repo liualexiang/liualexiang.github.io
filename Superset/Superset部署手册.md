@@ -1,3 +1,22 @@
+---
+author: liualexiang
+title:Superset安装说明
+---
+- [Superset安装说明](#superset安装说明)
+  - [系统要求](#系统要求)
+  - [安装准备工具](#安装准备工具)
+  - [开始安装](#开始安装)
+  - [测试环境部署，生产环境请跳过此步骤](#测试环境部署生产环境请跳过此步骤)
+  - [在生产环境中使用gunicorn部署WSGI HTTP Server](#在生产环境中使用gunicorn部署wsgi-http-server)
+  - [使用nginx 做前端转发](#使用nginx-做前端转发)
+  - [登录到superset上](#登录到superset上)
+  - [安装mysql和aws athena连接driver](#安装mysql和aws-athena连接driver)
+  - [使用Redis做Cache，使用MySQL RDS做metastore](#使用redis做cache使用mysql-rds做metastore)
+  - [Superset高可用](#superset高可用)
+  - [故障排查](#故障排查)
+  - [在AWS上使用CloudFromation部署SuperSet](#在aws上使用cloudfromation部署superset)
+  - [在AWS上使用terraform部署superset](#在aws上使用terraform部署superset)
+  - [参考资料](#参考资料)
 #### Superset安装说明
 Superset是一个airbnb贡献出开源的BI工具，在airbnb内部广泛使用，目前amazon内部也慢慢将BI工具从tableau迁移到Superset.
 

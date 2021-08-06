@@ -1,3 +1,12 @@
+---
+author: liualexiang
+title:将Azure VM的内存和硬盘等指标发布到Azure Monitor上
+---
+- [将Azure VM的内存和硬盘等指标发布到Azure Monitor上](#将azure-vm的内存和硬盘等指标发布到azure-monitor上)
+  - [说明](#说明)
+  - [示例：使用Azure CLI查询Windows内存信息](#示例使用azure-cli查询windows内存信息)
+  - [示例：使用Azure CLI查询Linux指标](#示例使用azure-cli查询linux指标)
+  - [有关为何Azure默认无内存和磁盘等监控指标，以及为何自定义指标收费的解释](#有关为何azure默认无内存和磁盘等监控指标以及为何自定义指标收费的解释)
 #### 将Azure VM的内存和硬盘等指标发布到Azure Monitor上
 ##### 说明
 无论是Windows和Linux，均可以在Azure VM的Diagnostic settings里面开启将指标发送到Azure Monitor上。但需要注意的是：该指标实际上是存储在Azure Storage Account的Table Store中，虽然Azure Monitor Portal上可以看到这个指标，但通过Azure Monitor的API查询不到自定义指标(REST API和Azure CLI均查不到，其他SDK应该也一样)。为了能够查询到内存和磁盘的指标，Windows VM可以在配置Diagnostics settings的时候启用Sinks功能，将自定义指标保存到Azure Monitor服务中；Linux VM需要配置telegraf来发送指标。

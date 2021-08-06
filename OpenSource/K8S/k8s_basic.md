@@ -1,3 +1,13 @@
+---
+author: liualexiang
+title:K8S 常用的几个yaml文件
+---
+- [K8S 常用的几个yaml文件](#k8s-常用的几个yaml文件)
+  - [kubectl cheetsheet](#kubectl-cheetsheet)
+  - [常用测试的yaml](#常用测试的yaml)
+  - [k8s 证书管理](#k8s-证书管理)
+  - [切换kubeconfig](#切换kubeconfig)
+  - [管理coreDNS](#管理coredns)
 #### K8S 常用的几个yaml文件
 
 ##### kubectl cheetsheet

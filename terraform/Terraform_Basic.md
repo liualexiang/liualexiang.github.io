@@ -1,3 +1,18 @@
+---
+author: liualexiang
+title:Terraform 初步学习手册
+---
+- [Terraform 初步学习手册](#terraform-初步学习手册)
+  - [下载安装Terraform](#下载安装terraform)
+  - [Terraform 的基本配置](#terraform-的基本配置)
+    - [环境变量配置](#环境变量配置)
+  - [terraform中代码区间的说明](#terraform中代码区间的说明)
+    - [tf文件编写指南](#tf文件编写指南)
+  - [创建多个资源](#创建多个资源)
+  - [将结果通过output打印出来](#将结果通过output打印出来)
+  - [示例：使用terraform创建一个VPC，子网，IGW，子网路由，以及EC2，EC2指定一个额外的EBS卷以及UseData.](#示例使用terraform创建一个vpc子网igw子网路由以及ec2ec2指定一个额外的ebs卷以及usedata)
+  - [使用 count 创建多个同一Resource](#使用-count-创建多个同一resource)
+  - [跟VS Code集成](#跟vs-code集成)
 #### Terraform 初步学习手册
 ##### 下载安装Terraform
 [Terraform](https://www.terraform.io/downloads.html) 为一个二进制文件，只要下载下来放到PATH路径下即可使用.

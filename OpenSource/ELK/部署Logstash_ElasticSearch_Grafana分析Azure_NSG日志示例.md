@@ -1,3 +1,15 @@
+---
+author: liualexiang
+title:使用开源方案来分析Azure NSG flow log
+---
+- [使用开源方案来分析Azure NSG flow log](#使用开源方案来分析azure-nsg-flow-log)
+  - [在Ubuntu 16.04系统下最小化安装示例](#在ubuntu-1604系统下最小化安装示例)
+  - [安装logstash](#安装logstash)
+  - [可选： 有关Logstash的配置解读](#可选-有关logstash的配置解读)
+  - [安装ElasticSearch](#安装elasticsearch)
+  - [安装Grafana](#安装grafana)
+  - [配置Grafana 数据源](#配置grafana-数据源)
+  - [配置Grafana Dashboard](#配置grafana-dashboard)
 #### 使用开源方案来分析Azure NSG flow log
 ##### 在Ubuntu 16.04系统下最小化安装示例
 ##### 安装logstash

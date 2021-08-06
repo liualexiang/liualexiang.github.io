@@ -1,6 +1,15 @@
+---
+author: liualexiang
+title:个人笔记
+---
+
 #### 个人笔记
 * gitbook 地址: https://gitbook.aiaod.com/
 * github 地址: https://github.com/liualexiang/learninguide
 
+#### 网站相关
+* 本博客使用markdown格式 + front Matter，Front Matter是后加上去的，使用本项目根路径下的 [generate_front_matter.py](generate_front_matter.py)产生
+* 文章内部的目录ToC (Table of Content)使用了VS Code的插件 [markdown all in one](https://marketplace.visualstudio.com/items?itemName=yzhang.markdown-all-in-one) 实现的
 ----
-有问题请提交issue: https://github.com/liualexiang/learninguide/issues
+#### 讨论和反馈
+有问题请在这里提交 [issue](https://github.com/liualexiang/learninguide/issues)

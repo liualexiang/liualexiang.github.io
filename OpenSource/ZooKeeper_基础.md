@@ -1,3 +1,12 @@
+---
+author: liualexiang
+title:ZooKeeper Basic 部署文档
+---
+- [ZooKeeper Basic 部署文档](#zookeeper-basic-部署文档)
+  - [分布式系统常见的问题](#分布式系统常见的问题)
+  - [ZooKeeper部署](#zookeeper部署)
+  - [使用 zkCli.sh 连接 zookeeper](#使用-zkclish-连接-zookeeper)
+  - [failover机制](#failover机制)
 #### ZooKeeper Basic 部署文档
 ##### 分布式系统常见的问题
 

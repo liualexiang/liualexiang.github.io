@@ -1,3 +1,13 @@
+---
+author: liualexiang
+title:在centos 7系统下安装Jenkins
+---
+- [在centos 7系统下安装Jenkins](#在centos-7系统下安装jenkins)
+  - [先决条件](#先决条件)
+  - [Jenkins参数化构建](#jenkins参数化构建)
+  - [Jenkins Master/Slave架构](#jenkins-masterslave架构)
+  - [定义Jenkins 触发器](#定义jenkins-触发器)
+  - [更改Jenkins源，提高下载插件的速度](#更改jenkins源提高下载插件的速度)
 #### 在centos 7系统下安装Jenkins
 ##### 先决条件
 1. 需要安装 java  

@@ -1,3 +1,17 @@
+---
+author: liualexiang
+title:AKS 基本上手操作
+---
+- [AKS 基本上手操作](#aks-基本上手操作)
+  - [创建AKS](#创建aks)
+  - [下载kubectl，并配置kubeconfig](#下载kubectl并配置kubeconfig)
+  - [验证集群状态](#验证集群状态)
+  - [部署一个简单的nginx deployment，并指定replicas为3](#部署一个简单的nginx-deployment并指定replicas为3)
+  - [有关Storage Class和PVC](#有关storage-class和pvc)
+  - [创建Service，利用Azure Load Balancer将服务发布出去](#创建service利用azure-load-balancer将服务发布出去)
+  - [试用application gateway ingress](#试用application-gateway-ingress)
+  - [使用nginx 做为ingress controller(heml3)：](#使用nginx-做为ingress-controllerheml3)
+  - [备注: K8s的一些基本知识](#备注-k8s的一些基本知识)
 ### AKS 基本上手操作
 #### 创建AKS
 

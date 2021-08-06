@@ -1,3 +1,12 @@
+---
+author: liualexiang
+title:通过源码build azure cli
+---
+- [通过源码build azure cli](#通过源码build-azure-cli)
+  - [示例](#示例)
+    - [下载某一个branch](#下载某一个branch)
+    - [安装python，python虚拟环境，安装 azdev工具](#安装pythonpython虚拟环境安装-azdev工具)
+  - [安装az cli](#安装az-cli)
 #### 通过源码build azure cli
 在某些时候，当az cli有一些bug或者不足，产品组会发布新版本，但产品组review新版本的时间可能会比较长，这时候可以自己在github的pull request里面找到fix的pr，然后自行pull下来进行编译
 

@@ -1,3 +1,13 @@
+---
+author: liualexiang
+title:使用Azure Service Principal 登录Azure CLI
+---
+- [使用Azure Service Principal 登录Azure CLI](#使用azure-service-principal-登录azure-cli)
+  - [创建 Azure Service Principal](#创建-azure-service-principal)
+  - [对Service Principal 进行授权](#对service-principal-进行授权)
+  - [在Azure CLI中配置Service Principal](#在azure-cli中配置service-principal)
+  - [使用azure cli创建sp并登录](#使用azure-cli创建sp并登录)
+  - [使用azure cli登录到不同的云](#使用azure-cli登录到不同的云)
 #### 使用Azure Service Principal 登录Azure CLI
 ##### 创建 Azure Service Principal 
 Azure Service Principal 是Azure AD 中提供的一种身份验证功能，可以通过Azure SP登录Azure CLI, Teraform, Azure PowerShell, SDK 等。Azure Service Prinicipal还提供了OAuth 2.0，OIDC(Open ID Connect), SAML, Microsoft Graph API等多种身份验证接口，方便开发人员快速开发应用。

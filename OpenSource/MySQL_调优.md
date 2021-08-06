@@ -1,3 +1,12 @@
+---
+author: liualexiang
+title:MySQL 调优基础知识
+---
+- [MySQL 调优基础知识](#mysql-调优基础知识)
+  - [MySQL 架构](#mysql-架构)
+  - [事务](#事务)
+  - [锁](#锁)
+  - [存储引擎](#存储引擎)
 #### MySQL 调优基础知识
 
 ##### MySQL 架构

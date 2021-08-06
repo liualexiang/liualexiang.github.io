@@ -1,3 +1,10 @@
+---
+author: liualexiang
+title:将Gitlab的用户系统和AzureAD集成
+---
+- [将Gitlab的用户系统和AzureAD集成](#将gitlab的用户系统和azuread集成)
+  - [在Ubuntu 18.04系统下安装Gitlab](#在ubuntu-1804系统下安装gitlab)
+  - [设置与Azure集成](#设置与azure集成)
 #### 将Gitlab的用户系统和AzureAD集成
 
 ##### 在Ubuntu 18.04系统下安装Gitlab

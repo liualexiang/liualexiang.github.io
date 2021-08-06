@@ -1,3 +1,11 @@
+---
+author: liualexiang
+title:Kibana 可视化的一些注意事项
+---
+- [Kibana 可视化的一些注意事项](#kibana-可视化的一些注意事项)
+  - [Kibana 和ES的集成](#kibana-和es的集成)
+  - [搜索](#搜索)
+  - [创建可视化Visualize](#创建可视化visualize)
 #### Kibana 可视化的一些注意事项
 
 ##### Kibana 和ES的集成

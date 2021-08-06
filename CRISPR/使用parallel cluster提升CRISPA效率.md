@@ -1,3 +1,14 @@
+---
+author: liualexiang
+title:使用parallel cluster提升CRISPR效率
+---
+- [使用parallel cluster提升CRISPR效率](#使用parallel-cluster提升crispr效率)
+  - [准备cas-Offinder 镜像](#准备cas-offinder-镜像)
+  - [准备参考基因组和GuideRNA数据](#准备参考基因组和guiderna数据)
+  - [cas-offinder单机使用方法](#cas-offinder单机使用方法)
+  - [创建pcluster集群](#创建pcluster集群)
+  - [使用slurm 提交job](#使用slurm-提交job)
+  - [对slurm启用accounting功能](#对slurm启用accounting功能)
 #### 使用parallel cluster提升CRISPR效率
 如有问题，请及时反馈
 

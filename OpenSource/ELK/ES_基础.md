@@ -1,3 +1,14 @@
+---
+author: liualexiang
+title:ElasticSearch的基础配置
+---
+- [ElasticSearch的基础配置](#elasticsearch的基础配置)
+  - [使用ingest-geoip处理IP](#使用ingest-geoip处理ip)
+  - [在Kibana 地图中展示GeoIP位置](#在kibana-地图中展示geoip位置)
+  - [分析Nginx access的示例](#分析nginx-access的示例)
+  - [使用if来判断，决定是否添加字段](#使用if来判断决定是否添加字段)
+  - [附录1：几个常用的ES命令](#附录1几个常用的es命令)
+  - [附录2：将Azure NSG Logs的srcIp在Logstash地图上展示示例](#附录2将azure-nsg-logs的srcip在logstash地图上展示示例)
 #### ElasticSearch的基础配置
 
 #####  使用ingest-geoip处理IP
