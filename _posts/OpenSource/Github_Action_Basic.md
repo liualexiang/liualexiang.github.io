@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:Github Action 基础使用
----
+
 - [Github Action 基础使用](#github-action-基础使用)
   - [Github Action 是做什么的？](#github-action-是做什么的)
   - [一个Github Action的示例](#一个github-action的示例)
@@ -86,4 +83,5 @@ jobs:
 
 ## 学习链接:
 https://docs.github.com/en/actions/quickstart
+https://blog.csdn.net/qq_39969226/article/details/106216566rt
 https://blog.csdn.net/qq_39969226/article/details/106216566

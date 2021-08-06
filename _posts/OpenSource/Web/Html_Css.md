@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:HTML和CSS的基础
----
+
 - [HTML和CSS的基础](#html和css的基础)
   - [使用VS Code快速创建 html](#使用vs-code快速创建-html)
   - [使用vs code快速创建css文件](#使用vs-code快速创建css文件)
@@ -68,4 +65,4 @@ p {
 
 ## html嵌套css的方法
 
-除了单独创建css文件，然后通过link引用之外，还可以将css直接写到html页面
+除了单独创建css文件，然后通过link引用之外，还可以将css直接写到html页面link引用之外，还可以将css直接写到html页面

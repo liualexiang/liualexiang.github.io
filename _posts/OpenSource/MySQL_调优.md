@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:MySQL 调优基础知识
----
+
 - [MySQL 调优基础知识](#mysql-调优基础知识)
   - [MySQL 架构](#mysql-架构)
   - [事务](#事务)
@@ -52,5 +49,8 @@ title:MySQL 调优基础知识
 * 查看哪些表被锁了: ``` show OPEN TABLES where In_use > 0; ```
 * 查看是哪些语句被锁了: ``` show processlist; ```
 * 找到哪个语句被锁了，并找到进程id，然后在mysql客户端中执行 ```kill $ID ``` 即可杀掉进程 
+
+##### 存储引擎
+� ```kill $ID ``` 即可杀掉进程 
 
 ##### 存储引擎

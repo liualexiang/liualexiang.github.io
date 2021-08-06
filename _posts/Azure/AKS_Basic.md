@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:AKS 基本上手操作
----
+
 - [AKS 基本上手操作](#aks-基本上手操作)
   - [创建AKS](#创建aks)
   - [下载kubectl，并配置kubeconfig](#下载kubectl并配置kubeconfig)
@@ -425,5 +422,8 @@ kubectl get ingress，获得ingress的HOSTS名字，然后浏览器https访问�
 #### 备注: K8s的一些基本知识
 * 使用Azure CNI的网络插件，每一个pod上的ip都直接用了网卡的ip。还有常见的几个网络插件如calico(三层), flannel (overlay)
 * Service的类型为Cluster, Nodepod, LoadBalancer，其中cluster模式只能在集群内通信，nodepod模式通过iptables上做了转发，该iptables在每一个node上都有，loadbalancer模式则直接利用了云厂商的4层负载均衡器
+* 可以用application gateway替代ingress
+
+�均衡器
 * 可以用application gateway替代ingress
 

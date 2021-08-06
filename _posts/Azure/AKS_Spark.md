@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:在AKS平台上轻松运行Spark应用
----
+
 - [在AKS平台上轻松运行Spark应用](#在aks平台上轻松运行spark应用)
   - [前言](#前言)
   - [方法一：通过AKS 的API Server直接提交Spark任务](#方法一通过aks-的api-server直接提交spark任务)
@@ -195,4 +192,6 @@ spec:
 1.	AKS 介绍：https://docs.microsoft.com/zh-cn/azure/aks/intro-kubernetes
 2.	Running Spark on Kubernets：https://spark.apache.org/docs/latest/running-on-kubernetes.html
 3.	Apache Spark Operator: https://operatorhub.io/operator/radanalytics-spark
+
+ache Spark Operator: https://operatorhub.io/operator/radanalytics-spark
 

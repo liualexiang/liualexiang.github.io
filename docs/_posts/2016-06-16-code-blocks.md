@@ -1,8 +1,4 @@
----
-title: Jekyll - Code Blocks
-key: 20160616
-tags: Jekyll
----
+
 
 ## Code Spans
 
@@ -177,6 +173,13 @@ end
 ~~~
 
 **markdown:**
+
+    ~~~ ruby
+    def what?
+      42
+    end
+    ~~~
+wn:**
 
     ~~~ ruby
     def what?

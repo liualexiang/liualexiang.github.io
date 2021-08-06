@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:K8S 常用的几个yaml文件
----
+
 - [K8S 常用的几个yaml文件](#k8s-常用的几个yaml文件)
   - [kubectl cheetsheet](#kubectl-cheetsheet)
   - [常用测试的yaml](#常用测试的yaml)
@@ -144,6 +141,10 @@ data:
 之后需要重启coreDNS才能生效  
 ```
 kubectl rollout restart -n kube-system deployment/coredns
+```
+
+
+bectl rollout restart -n kube-system deployment/coredns
 ```
 
 

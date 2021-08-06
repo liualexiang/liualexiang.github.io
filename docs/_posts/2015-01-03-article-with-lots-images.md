@@ -1,8 +1,4 @@
----
-title: Test - Article with Lots of Images
-key: 20150103
-tags: Test
----
+
 
 ## TeXt Theme - Cover
 
@@ -37,3 +33,4 @@ tags: Test
 ## Skin: Orange
 
 ![orange](https://raw.githubusercontent.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_orange.jpg)
+content.com/kitian616/jekyll-TeXt-theme/master/screenshots/skins_orange.jpg)

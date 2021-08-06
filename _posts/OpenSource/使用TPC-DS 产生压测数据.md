@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:使用TPC-DS 产生压测数据
----
+
 - [使用TPC-DS 产生压测数据](#使用tpc-ds-产生压测数据)
   - [下载TPC-DS压测工具：(测试版本 2.11.0)](#下载tpc-ds压测工具测试版本-2110)
   - [编译之后使用dsdgen产生数据，其中 -scale 指定产生多大的数据，比如下面产生 1000GB，-parallel指定将数据切成4个片段，-child指定当前产生第几个片段](#编译之后使用dsdgen产生数据其中--scale-指定产生多大的数据比如下面产生-1000gb-parallel指定将数据切成4个片段-child指定当前产生第几个片段)
@@ -242,6 +239,11 @@ STORED AS INPUTFORMAT
   'org.apache.hadoop.mapred.TextInputFormat' 
 OUTPUTFORMAT 
   'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
+LOCATION
+  's3://xlaws/data/warehouse/';
+```
+
+extOutputFormat'
 LOCATION
   's3://xlaws/data/warehouse/';
 ```

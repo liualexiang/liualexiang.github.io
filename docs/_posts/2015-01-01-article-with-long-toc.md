@@ -1,8 +1,4 @@
----
-title: Test - Article with Long TOC
-key: 20150101
-tags: Test
----
+
 
 Article with long TOC.
 
@@ -61,6 +57,11 @@ Article with long TOC.
 ### TeXt Heading
 
 ### Very Very Very Very Very Very Very Very Very Very Very Very Very Extremely Completely Extraordinary Long Long Long Long Title
+
+### TeXt Heading
+
+### TeXt Heading
+nary Long Long Long Long Title
 
 ### TeXt Heading
 

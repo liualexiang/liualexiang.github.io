@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:Terraform 初步学习手册
----
+
 - [Terraform 初步学习手册](#terraform-初步学习手册)
   - [下载安装Terraform](#下载安装terraform)
   - [Terraform 的基本配置](#terraform-的基本配置)
@@ -273,6 +270,11 @@ resource "aws_subnet" "public_subnets" {
     },
     "terraform.indexing": {
         "enabled": true,
+        "liveIndexing": true
+        }
+
+```
+enabled": true,
         "liveIndexing": true
         }
 

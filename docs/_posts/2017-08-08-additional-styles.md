@@ -1,8 +1,4 @@
----
-title: TeXt - Additional Styles
-key: 20170808
-tags: TeXt
----
+
 
 Success!
 {:.success}
@@ -98,3 +94,4 @@ Error Text.
 | Card | [Doc](https://tianqi.name/jekyll-TeXt-theme/docs/en/card) |
 | Hero | [Doc](https://tianqi.name/jekyll-TeXt-theme/docs/en/hero) |
 | Swiper | [Doc](https://tianqi.name/jekyll-TeXt-theme/docs/en/swiper) |
+er | [Doc](https://tianqi.name/jekyll-TeXt-theme/docs/en/swiper) |

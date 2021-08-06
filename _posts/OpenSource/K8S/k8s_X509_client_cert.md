@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:介绍
----
+
 - [介绍](#介绍)
 - [操作步骤](#操作步骤)
 #### 介绍
@@ -183,4 +180,5 @@ kubectl create deployment nginxtest --image=nginx --replicas=3 -n development
 ```
 $ kubectl create deployment nginxtest --image=nginx --replicas=3
 error: failed to create deployment: deployments.apps is forbidden: User "xiang" cannot create resource "deployments" in API group "apps" in the namespace "default"
+```roup "apps" in the namespace "default"
 ```

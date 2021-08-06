@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:使用Azure Service Principal 登录Azure CLI
----
+
 - [使用Azure Service Principal 登录Azure CLI](#使用azure-service-principal-登录azure-cli)
   - [创建 Azure Service Principal](#创建-azure-service-principal)
   - [对Service Principal 进行授权](#对service-principal-进行授权)
@@ -59,4 +56,6 @@ az logout
  az cloud set --name AzureChinaCloud
  az login
  # https://docs.microsoft.com/zh-cn/cli/azure/manage-clouds-azure-cli?toc=%2Fcli%2Fazure%2Ftoc.json&bc=%2Fcli%2Fazure%2Fbreadcrumb%2Ftoc.json&view=azure-cli-latest
+```
+%2Ftoc.json&bc=%2Fcli%2Fazure%2Fbreadcrumb%2Ftoc.json&view=azure-cli-latest
 ```

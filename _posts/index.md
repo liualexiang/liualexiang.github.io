@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:个人笔记
----
+
 
 #### 个人笔记
 * gitbook 地址: https://gitbook.aiaod.com/
@@ -13,3 +10,4 @@ title:个人笔记
 
 #### 讨论和反馈
 有问题请在这里提交 [issue](https://github.com/liualexiang/learninguide/issues)
+s://github.com/liualexiang/learninguide/issues)

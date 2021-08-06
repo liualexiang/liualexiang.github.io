@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:Git 最基本的几个命令
----
+
 - [Git 最基本的几个命令](#git-最基本的几个命令)
   - [初始化git](#初始化git)
   - [配置github的key](#配置github的key)
@@ -162,6 +159,10 @@ git clone ssh://username@ip/home/repos/app.git
 
 ```
 # git remote add origin git@github.com/username/repos
+ssh -T git@github.com
+
+```
+gin git@github.com/username/repos
 ssh -T git@github.com
 
 ```

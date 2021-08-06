@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:使用parallel cluster提升CRISPR效率
----
+
 - [使用parallel cluster提升CRISPR效率](#使用parallel-cluster提升crispr效率)
   - [准备cas-Offinder 镜像](#准备cas-offinder-镜像)
   - [准备参考基因组和GuideRNA数据](#准备参考基因组和guiderna数据)
@@ -152,6 +149,9 @@ sudo kill -9 17707
 
 * 重启slurmctld 服务
 sudo /opt/slurm/sbin/slurmctld
+
+* 确认 slurmctld 服务已经启动
+sudo ps -ef | grep slurmctldrmctld
 
 * 确认 slurmctld 服务已经启动
 sudo ps -ef | grep slurmctld

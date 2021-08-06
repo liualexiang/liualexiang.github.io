@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:LUKS 介绍
----
+
 - [LUKS 介绍](#luks-介绍)
 - [使用LUKS加密非系统卷](#使用luks加密非系统卷)
 - [帮助](#帮助)
@@ -79,3 +76,4 @@ cryptsetup luksFormat --help
 帮助文档:
 https://wiki.archlinux.org/index.php/Dm-crypt
 https://gitlab.com/cryptsetup/cryptsetup/wikis/FrequentlyAskedQuestions
+etup/cryptsetup/wikis/FrequentlyAskedQuestions

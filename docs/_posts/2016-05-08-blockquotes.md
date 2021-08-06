@@ -1,8 +1,4 @@
----
-title: Jekyll - Blockquotes
-key: 20160508
-tags: Jekyll
----
+
 
 > “There is nothing either good or bad, but thinking makes it so.”
 >
@@ -25,5 +21,8 @@ tags: Jekyll
 > They are the books, the arts, the academes,
 >
 > That show, contain, and nourish all the world.”
+>
+> —Berowne in *Love’s Labor’s Lost*
+ all the world.”
 >
 > —Berowne in *Love’s Labor’s Lost*

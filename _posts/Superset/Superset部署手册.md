@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:Superset安装说明
----
+
 - [Superset安装说明](#superset安装说明)
   - [系统要求](#系统要求)
   - [安装准备工具](#安装准备工具)
@@ -227,3 +224,4 @@ botocore               1.15.26
 ##### 参考资料
 https://superset.incubator.apache.org/installation.htm
 https://docs.gunicorn.org/en/stable/run.html#integration
+ttps://docs.gunicorn.org/en/stable/run.html#integration

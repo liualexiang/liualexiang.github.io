@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:Kibana 可视化的一些注意事项
----
+
 - [Kibana 可视化的一些注意事项](#kibana-可视化的一些注意事项)
   - [Kibana 和ES的集成](#kibana-和es的集成)
   - [搜索](#搜索)
@@ -62,4 +59,4 @@ Region Map 的使用技巧如下(在7.8.0版本测试)：
 
 
 [^_^]:
-    还未按照下面的blog测试:https://www.cnblogs.com/sanduzxcvbnm/p/12841986.html
+    还未按照下面的blog测试:https://www.cnblogs.com/sanduzxcvbnm/p/12841986.html��下面的blog测试:https://www.cnblogs.com/sanduzxcvbnm/p/12841986.html

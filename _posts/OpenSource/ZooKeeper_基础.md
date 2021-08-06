@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:ZooKeeper Basic 部署文档
----
+
 - [ZooKeeper Basic 部署文档](#zookeeper-basic-部署文档)
   - [分布式系统常见的问题](#分布式系统常见的问题)
   - [ZooKeeper部署](#zookeeper部署)
@@ -75,6 +72,13 @@ zookeeper 选举原则为：过半原则，即：3台机器的情况下，只要
 observer 的机器不参与选举，但提供了水平扩展功能(选举也会消耗一部分性能， observer的机器可以同步数据并提供读取功能)
 
 因此 zookeeper 要部署成 **单数** 节点模式
+
+
+
+
+
+
+�此 zookeeper 要部署成 **单数** 节点模式
 
 
 

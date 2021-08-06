@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:部署ElasticSearch
----
+
 - [部署ElasticSearch](#部署elasticsearch)
 - [ES 与 SQL 概念上的差异](#es-与-sql-概念上的差异)
 - [ES Index API](#es-index-api)
@@ -196,6 +193,10 @@ title:部署ElasticSearch
         * 清除某个index的shard requet cache: POST http://elk.liuxianms.com:9200/cf_view/_cache/clear?request=true
         * 清除某个index的field data cache: POST http://elk.liuxianms.com:9200/cf_view/_cache/clear?fielddata=true
         * 刷新/flush/synced flush/Forcemerge： POST _refresh, _flush, _flush/synced, _forcemerge
+
+
+
+OST _refresh, _flush, _flush/synced, _forcemerge
 
 
 

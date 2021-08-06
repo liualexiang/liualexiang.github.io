@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:使用开源方案来分析Azure NSG flow log
----
+
 - [使用开源方案来分析Azure NSG flow log](#使用开源方案来分析azure-nsg-flow-log)
   - [在Ubuntu 16.04系统下最小化安装示例](#在ubuntu-1604系统下最小化安装示例)
   - [安装logstash](#安装logstash)
@@ -226,4 +223,4 @@ X-Axis 也很重要，决定了数据聚合的方法，Mode选择Series则按照
 
 
 
-参考文档：https://docs.microsoft.com/zh-cn/azure/network-watcher/network-watcher-read-nsg-flow-logs
+参考文档：https://docs.microsoft.com/zh-cn/azure/network-watcher/network-watcher-read-nsg-flow-logs/docs.microsoft.com/zh-cn/azure/network-watcher/network-watcher-read-nsg-flow-logs

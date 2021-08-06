@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:配置SSH Tunnel访问网站
----
+
 - [配置SSH Tunnel访问网站](#配置ssh-tunnel访问网站)
   - [快速配置ssh tunnel](#快速配置ssh-tunnel)
   - [智能浏览的配置](#智能浏览的配置)
@@ -39,6 +36,10 @@ sudo apachectl start/restart
 再次试试，就能发现可以访问谷歌和内部系统啦！
 
 配置开机自动脚本，开机自动运行下面的代码即可（PAC配置可以一直挂着，毕竟配置了proxy和Direct的高可用，哈哈）
+nohup ssh -ND 8898 -i key.pem ec2-user@ip &
+
+大功告成！
+
 nohup ssh -ND 8898 -i key.pem ec2-user@ip &
 
 大功告成！

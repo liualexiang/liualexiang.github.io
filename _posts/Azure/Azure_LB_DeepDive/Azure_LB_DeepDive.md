@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:Azure LB Deep Dive
----
+
 - [Azure LB Deep Dive](#azure-lb-deep-dive)
   - [有关LB底层设计原理](#有关lb底层设计原理)
   - [Float IP 的解释](#float-ip-的解释)
@@ -47,4 +44,4 @@ azure LB FloatIP启用之后，在后端的VM上，抓包看到的IP是负载均
   * 启用Float IP的情况下，VFP就不做IP转换的操作了，出去流量是由VM到VFP直接出去的。
   * 无论是否启用Float IP，出去流量都不经过MUX，这也就是为何说Azure LB永远工作在DSR(Direct Server Response)模式下
 
-参考资料：https://www.youtube.com/watch?v=wJvmXM81tEI
+参考资料：https://www.youtube.com/watch?v=wJvmXM81tEI考资料：https://www.youtube.com/watch?v=wJvmXM81tEI

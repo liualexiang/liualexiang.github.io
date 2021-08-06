@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:ElasticSearch的基础配置
----
+
 - [ElasticSearch的基础配置](#elasticsearch的基础配置)
   - [使用ingest-geoip处理IP](#使用ingest-geoip处理ip)
   - [在Kibana 地图中展示GeoIP位置](#在kibana-地图中展示geoip位置)
@@ -731,6 +728,11 @@ add_field => [ "[geoip][coordinates]", "%{[geoip][longitude]}" ]
    stdout { codec => rubydebug }
    elasticsearch {
      hosts => "localhost"
+     index => "nsg-flow-logs"
+   }
+ }
+
+```ts => "localhost"
      index => "nsg-flow-logs"
    }
  }

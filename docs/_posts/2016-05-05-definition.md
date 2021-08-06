@@ -1,8 +1,4 @@
----
-title: Jekyll - Definition
-key: 20160505
-tags: Jekyll
----
+
 
 kramdown
 : A Markdown-superset converter
@@ -16,6 +12,10 @@ Maruku
 
     kramdown
     : A Markdown-superset converter
+
+    Maruku
+    :     Another Markdown-superset converter
+er
 
     Maruku
     :     Another Markdown-superset converter

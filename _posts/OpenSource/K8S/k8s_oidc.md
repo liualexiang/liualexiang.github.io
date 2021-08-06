@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:使用Google OIDC的方式访问k8s
----
+
 - [使用Google OIDC的方式访问k8s](#使用google-oidc的方式访问k8s)
   - [背景](#背景)
   - [创建OIDC](#创建oidc)
@@ -90,5 +87,7 @@ roleRef:
 接下来验证下是否能访问成功吧
 ```
 kubectl --user=xxxxx@gmail.com get nodes
+kubectl --token=[THIS_IS_JWT_TOKEN] get nodes
+```@gmail.com get nodes
 kubectl --token=[THIS_IS_JWT_TOKEN] get nodes
 ```

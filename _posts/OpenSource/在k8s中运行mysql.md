@@ -1,7 +1,4 @@
----
-author: liualexiang
-title:None
----
+
 
 首先创建一个nfs，作为mysql数据卷的持久化存储。如果是在某个云平台构建的k8s，也可以使用AWS的EFS或者Azure的Fileshare等作为持久化存储。
 
@@ -10,4 +7,6 @@ title:None
 
 k8s默认不支持nfs作为storage class，不过我们可以用nfs的插件来做:
 https://kubernetes.io/docs/concepts/storage/storage-classes/
+
+ocs/concepts/storage/storage-classes/
 
