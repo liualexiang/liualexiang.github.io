@@ -23,7 +23,7 @@ def add_front_matter(file):
         content = f.read()
         title = get_doc_title(file)
         f.seek(0)
-        f.write("---\nauthor: liualexiang\ntitle:{title}\n---\n\n".format(title= title) + content)
+        f.write("---\nauthor: liualexiang\ntitle: {title}\n---\n\n".format(title= title) + content)
 
 
 def do_add_front_matter(file):
@@ -37,4 +37,7 @@ def do_add_front_matter(file):
 if __name__ == "__main__":
     docs_list = get_docs_list()
     for doc in docs_list:
+        print("=========")
+        print(doc)
+        print("=============")
         do_add_front_matter(doc)

@@ -1,3 +1,11 @@
+---
+author: liualexiang
+title: 使用Google OIDC的方式访问k8s
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
+
+
 
 - [使用Google OIDC的方式访问k8s](#使用google-oidc的方式访问k8s)
   - [背景](#背景)
@@ -88,6 +96,9 @@ roleRef:
 ```
 kubectl --user=xxxxx@gmail.com get nodes
 kubectl --token=[THIS_IS_JWT_TOKEN] get nodes
+```@gmail.com get nodes
+kubectl --token=[THIS_IS_JWT_TOKEN] get nodes
+```ectl --token=[THIS_IS_JWT_TOKEN] get nodes
 ```@gmail.com get nodes
 kubectl --token=[THIS_IS_JWT_TOKEN] get nodes
 ```

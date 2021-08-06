@@ -1,3 +1,11 @@
+---
+author: liualexiang
+title: 量子计算机的那些事儿
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
+
+
 
 - [量子计算机的那些事儿](#量子计算机的那些事儿)
   - [量子计算的基础](#量子计算的基础)
@@ -19,5 +27,7 @@
 
 $$
 V(r)  = -\frac{Ar^3}{12\epsilon_0} - \frac{C_1}{r} + C_2 \tag{1}
+$$(r)  = -\frac{Ar^3}{12\epsilon_0} - \frac{C_1}{r} + C_2 \tag{1}
+$$12\epsilon_0} - \frac{C_1}{r} + C_2 \tag{1}
 $$(r)  = -\frac{Ar^3}{12\epsilon_0} - \frac{C_1}{r} + C_2 \tag{1}
 $$

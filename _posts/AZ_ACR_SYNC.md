@@ -1,3 +1,12 @@
+---
+author: liualexiang
+title: Azure Container Registries 镜像同步
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
+
+
+
 
 - [Azure Container Registries 镜像同步](#azure-container-registries-镜像同步)
   - [创建Azure Function](#创建azure-function)
@@ -54,6 +63,12 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 ```
 
 ra)
+    return func.HttpResponse(src_image_url + " copied successfully")
+    # return func.HttpResponse(result)
+
+```
+
+a)
     return func.HttpResponse(src_image_url + " copied successfully")
     # return func.HttpResponse(result)
 

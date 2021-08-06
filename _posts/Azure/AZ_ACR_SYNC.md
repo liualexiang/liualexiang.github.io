@@ -1,3 +1,11 @@
+---
+author: liualexiang
+title: Azure Container Registries 镜像同步
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
+
+
 
 - [Azure Container Registries 镜像同步](#azure-container-registries-镜像同步)
   - [创建Azure Function](#创建azure-function)
@@ -50,6 +58,15 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     imp_img = acrclient.registries.import_image(resource_group_name= TARGET_RESOURCE_GROUP, registry_name =TAEGET_IMG_REPO, parameters=import_img_para)
     return func.HttpResponse(src_image_url + " copied successfully")
     # return func.HttpResponse(result)
+
+```
+
++ " copied successfully")
+    # return func.HttpResponse(result)
+
+```
+
+  # return func.HttpResponse(result)
 
 ```
 

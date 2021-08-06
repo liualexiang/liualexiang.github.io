@@ -1,3 +1,11 @@
+---
+author: liualexiang
+title: Git 最基本的几个命令
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
+
+
 
 - [Git 最基本的几个命令](#git-最基本的几个命令)
   - [初始化git](#初始化git)
@@ -159,6 +167,14 @@ git clone ssh://username@ip/home/repos/app.git
 
 ```
 # git remote add origin git@github.com/username/repos
+ssh -T git@github.com
+
+```
+gin git@github.com/username/repos
+ssh -T git@github.com
+
+```
+/username/repos
 ssh -T git@github.com
 
 ```

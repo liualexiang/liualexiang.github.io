@@ -1,3 +1,11 @@
+---
+author: liualexiang
+title: 在centos 7系统下安装Jenkins
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
+
+
 
 - [在centos 7系统下安装Jenkins](#在centos-7系统下安装jenkins)
   - [先决条件](#先决条件)
@@ -72,6 +80,10 @@ API触发：	由远程主机 111.205.14.33 启动
 ```
 
 参考文档：https://www.cnblogs.com/hellxz/p/jenkins_install_plugins_faster.html  
+
+s://www.cnblogs.com/hellxz/p/jenkins_install_plugins_faster.html  
+
+lxz/p/jenkins_install_plugins_faster.html  
 
 s://www.cnblogs.com/hellxz/p/jenkins_install_plugins_faster.html  
 

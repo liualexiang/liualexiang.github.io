@@ -1,3 +1,12 @@
+---
+author: liualexiang
+title: AKS 基本上手操作
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
+
+
+
 
 - [AKS 基本上手操作](#aks-基本上手操作)
   - [创建AKS](#创建aks)
@@ -424,6 +433,11 @@ kubectl get ingress，获得ingress的HOSTS名字，然后浏览器https访问�
 * Service的类型为Cluster, Nodepod, LoadBalancer，其中cluster模式只能在集群内通信，nodepod模式通过iptables上做了转发，该iptables在每一个node上都有，loadbalancer模式则直接利用了云厂商的4层负载均衡器
 * 可以用application gateway替代ingress
 
-�均衡器
+�均衡器
+* 可以用application gateway替代ingress
+
+可以用application gateway替代ingress
+
+�均衡器
 * 可以用application gateway替代ingress
 

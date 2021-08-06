@@ -1,3 +1,11 @@
+---
+author: liualexiang
+title: Azure VM抓包说明
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
+
+
 
 - [Azure VM抓包说明](#azure-vm抓包说明)
 - [抓包解读](#抓包解读)
@@ -25,6 +33,12 @@ internal vm在数据包No.4 发起了一个GET请求，nginx_server.pcap在数�
 ### 结论：
 默认只对TCP和UDP做了NAT，没有对ICMP做NAT，所以ping不通。查阅Azure官方文档，是因为默认情况下Azure会对没有公网IP的VM做SNAT。文档参考：
 https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-connections#defaultsnat
+
+
+ncer/load-balancer-outbound-connections#defaultsnat
+
+
+balancer-outbound-connections#defaultsnat
 
 
 ncer/load-balancer-outbound-connections#defaultsnat

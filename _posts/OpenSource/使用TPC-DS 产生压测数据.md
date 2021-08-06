@@ -1,3 +1,11 @@
+---
+author: liualexiang
+title: 使用TPC-DS 产生压测数据
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
+
+
 
 - [使用TPC-DS 产生压测数据](#使用tpc-ds-产生压测数据)
   - [下载TPC-DS压测工具：(测试版本 2.11.0)](#下载tpc-ds压测工具测试版本-2110)
@@ -240,6 +248,15 @@ STORED AS INPUTFORMAT
 OUTPUTFORMAT 
   'org.apache.hadoop.hive.ql.io.HiveIgnoreKeyTextOutputFormat'
 LOCATION
+  's3://xlaws/data/warehouse/';
+```
+
+extOutputFormat'
+LOCATION
+  's3://xlaws/data/warehouse/';
+```
+
+ATION
   's3://xlaws/data/warehouse/';
 ```
 

@@ -1,3 +1,9 @@
+---
+author: liualexiang
+title: 通过CMI提供的Express Route将国内外Azure打通
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
 
 - [通过CMI提供的Express Route将国内外Azure打通](#通过cmi提供的express-route将国内外azure打通)
   - [新加坡Express Route设置](#新加坡express-route设置)
@@ -67,4 +73,4 @@
 * 在北一区的Vnet中，点击Peering，然后Add一个Peering，选择对端北二区的VNET，在这个Peering中，一定要Enable "Allow virtual network access from cmi-cnn1 to cmicnn2"，同时勾选 "use remote gateways".
 * 上一步创建完成之后，在北二区的VNET中，也自动多了一个Peering，点进去之后，确保Enable "Allow virtual network access from cmicnn2 to cmi-cnn1"，以及勾选 "Allow gateway transit"
 * VNET的路由不需要做任何其他调整，此时联系CMI人员，让他们在IPsec感兴趣流里面添加北一区VNET的IP段，以及在新加坡专线中的BGP路由中通告北一区VNET的IP段。
-* 上述测试完成之后，就可以在北一区ping一下新加坡的VM了，理想情况可以成功ping通。后，就可以在北一区ping一下新加坡的VM了，理想情况可以成功ping通。
+* 上述测试完成之后，就可以在北一区ping一下新加坡的VM了，理想情况可以成功ping通。后，就可以在北一区ping一下新加坡的VM了，理想情况可以成功ping通。��的VM了，理想情况可以成功ping通。后，就可以在北一区ping一下新加坡的VM了，理想情况可以成功ping通。

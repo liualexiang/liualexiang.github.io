@@ -1,3 +1,11 @@
+---
+author: liualexiang
+title: 个人笔记
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
+
+
 
 
 #### 个人笔记
@@ -10,4 +18,6 @@
 
 #### 讨论和反馈
 有问题请在这里提交 [issue](https://github.com/liualexiang/learninguide/issues)
+s://github.com/liualexiang/learninguide/issues)
+//github.com/liualexiang/learninguide/issues)
 s://github.com/liualexiang/learninguide/issues)

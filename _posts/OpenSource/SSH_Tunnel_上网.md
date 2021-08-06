@@ -1,3 +1,11 @@
+---
+author: liualexiang
+title: 配置SSH Tunnel访问网站
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
+
+
 
 - [配置SSH Tunnel访问网站](#配置ssh-tunnel访问网站)
   - [快速配置ssh tunnel](#快速配置ssh-tunnel)
@@ -37,6 +45,13 @@ sudo apachectl start/restart
 
 配置开机自动脚本，开机自动运行下面的代码即可（PAC配置可以一直挂着，毕竟配置了proxy和Direct的高可用，哈哈）
 nohup ssh -ND 8898 -i key.pem ec2-user@ip &
+
+大功告成！
+
+nohup ssh -ND 8898 -i key.pem ec2-user@ip &
+
+大功告成！
+ -i key.pem ec2-user@ip &
 
 大功告成！
 

@@ -1,3 +1,11 @@
+---
+author: liualexiang
+title: ElasticSearch的基础配置
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
+
+
 
 - [ElasticSearch的基础配置](#elasticsearch的基础配置)
   - [使用ingest-geoip处理IP](#使用ingest-geoip处理ip)
@@ -728,6 +736,16 @@ add_field => [ "[geoip][coordinates]", "%{[geoip][longitude]}" ]
    stdout { codec => rubydebug }
    elasticsearch {
      hosts => "localhost"
+     index => "nsg-flow-logs"
+   }
+ }
+
+```ts => "localhost"
+     index => "nsg-flow-logs"
+   }
+ }
+
+```
      index => "nsg-flow-logs"
    }
  }

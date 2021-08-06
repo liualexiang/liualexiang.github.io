@@ -1,3 +1,11 @@
+---
+author: liualexiang
+title: Terraform 初步学习手册
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
+
+
 
 - [Terraform 初步学习手册](#terraform-初步学习手册)
   - [下载安装Terraform](#下载安装terraform)
@@ -271,6 +279,15 @@ resource "aws_subnet" "public_subnets" {
     "terraform.indexing": {
         "enabled": true,
         "liveIndexing": true
+        }
+
+```
+enabled": true,
+        "liveIndexing": true
+        }
+
+```
+       "liveIndexing": true
         }
 
 ```

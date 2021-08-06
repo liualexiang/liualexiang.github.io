@@ -1,3 +1,9 @@
+---
+author: liualexiang
+title: python申请内存
+layout: post
+date: 2021-01-01 00:00:00 +0800
+---
 
 - [python申请内存](#python申请内存)
 - [taskset指定任务跑在那颗cpu上](#taskset指定任务跑在那颗cpu上)
@@ -22,5 +28,7 @@ taskset -c 2 python test.py
 * 查看内存使用情况 
   ```free -h ```
 * 或每隔1s打印一次内存情况，可以实时看到内存消耗变化情况
+  ``` vmstat 1```实时看到内存消耗变化情况
+  ``` vmstat 1```�到内存消耗变化情况
   ``` vmstat 1```实时看到内存消耗变化情况
   ``` vmstat 1```
