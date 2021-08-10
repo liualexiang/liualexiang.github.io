@@ -1,9 +1,10 @@
 ---
 author: liualexiang
 title: 部署ElasticSearch
-layout: post
+layout: article
 date: 2021-01-01 00:00:00 +0800
 ---
+
 
 
 
@@ -205,6 +206,15 @@ date: 2021-01-01 00:00:00 +0800
 
 
 OST _refresh, _flush, _flush/synced, _forcemerge
+
+
+
+esh, _flush, _flush/synced, _forcemerge
+
+
+
+OST _refresh, _flush, _flush/synced, _forcemerge
+
 
 
 

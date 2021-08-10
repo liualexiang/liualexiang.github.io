@@ -1,9 +1,10 @@
 ---
 author: liualexiang
 title: Github Action 基础使用
-layout: post
+layout: article
 date: 2021-01-01 00:00:00 +0800
 ---
+
 
 
 
@@ -93,4 +94,5 @@ jobs:
 https://docs.github.com/en/actions/quickstart
 https://blog.csdn.net/qq_39969226/article/details/106216566rt
 https://blog.csdn.net/qq_39969226/article/details/106216566.csdn.net/qq_39969226/article/details/106216566rt
+https://blog.csdn.net/qq_39969226/article/details/1062165666.csdn.net/qq_39969226/article/details/106216566rt
 https://blog.csdn.net/qq_39969226/article/details/106216566

@@ -33,7 +33,7 @@ def add_front_matter(file):
         content = f.read()
         title = get_doc_title(file)
         f.seek(0)
-        f.write("---\nauthor: liualexiang\ntitle: {title}\nlayout: post\ndate: 2021-01-01 00:00:00 +0800\n---\n".format(title= title) + content)
+        f.write("---\nauthor: liualexiang\ntitle: {title}\nlayout: article\ndate: 2021-01-01 00:00:00 +0800\n---\n".format(title= title) + content)
 
 
 def do_add_front_matter(file):

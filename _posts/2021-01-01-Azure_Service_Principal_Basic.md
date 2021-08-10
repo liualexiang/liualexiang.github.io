@@ -1,9 +1,10 @@
 ---
 author: liualexiang
 title: 使用Azure Service Principal 登录Azure CLI
-layout: post
+layout: article
 date: 2021-01-01 00:00:00 +0800
 ---
+
 
 
 
@@ -67,6 +68,11 @@ az logout
 ```
 %2Ftoc.json&bc=%2Fcli%2Fazure%2Fbreadcrumb%2Ftoc.json&view=azure-cli-latest
 ```
+adcrumb%2Ftoc.json&view=azure-cli-latest
+```
+%2Ftoc.json&bc=%2Fcli%2Fazure%2Fbreadcrumb%2Ftoc.json&view=azure-cli-latest
+```
+
 adcrumb%2Ftoc.json&view=azure-cli-latest
 ```
 %2Ftoc.json&bc=%2Fcli%2Fazure%2Fbreadcrumb%2Ftoc.json&view=azure-cli-latest

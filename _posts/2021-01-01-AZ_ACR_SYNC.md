@@ -1,9 +1,10 @@
 ---
 author: liualexiang
 title: Azure Container Registries 镜像同步
-layout: post
+layout: article
 date: 2021-01-01 00:00:00 +0800
 ---
+
 
 
 
@@ -65,6 +66,16 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     # return func.HttpResponse(result)
 
 ```
+
+  # return func.HttpResponse(result)
+
+```
+
++ " copied successfully")
+    # return func.HttpResponse(result)
+
+```
+
 
   # return func.HttpResponse(result)
 

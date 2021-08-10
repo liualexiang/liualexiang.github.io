@@ -1,9 +1,10 @@
 ---
 author: liualexiang
 title: 配置SSH Tunnel访问网站
-layout: post
+layout: article
 date: 2021-01-01 00:00:00 +0800
 ---
+
 
 
 
@@ -51,6 +52,14 @@ nohup ssh -ND 8898 -i key.pem ec2-user@ip &
 nohup ssh -ND 8898 -i key.pem ec2-user@ip &
 
 大功告成！
+ -i key.pem ec2-user@ip &
+
+大功告成！
+
+nohup ssh -ND 8898 -i key.pem ec2-user@ip &
+
+大功告成！
+
  -i key.pem ec2-user@ip &
 
 大功告成！

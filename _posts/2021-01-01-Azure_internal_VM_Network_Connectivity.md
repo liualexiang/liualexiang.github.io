@@ -1,9 +1,10 @@
 ---
 author: liualexiang
 title: Azure VM抓包说明
-layout: post
+layout: article
 date: 2021-01-01 00:00:00 +0800
 ---
+
 
 
 
@@ -36,6 +37,13 @@ https://docs.microsoft.com/en-us/azure/load-balancer/load-balancer-outbound-conn
 
 
 ncer/load-balancer-outbound-connections#defaultsnat
+
+
+balancer-outbound-connections#defaultsnat
+
+
+ncer/load-balancer-outbound-connections#defaultsnat
+
 
 
 balancer-outbound-connections#defaultsnat

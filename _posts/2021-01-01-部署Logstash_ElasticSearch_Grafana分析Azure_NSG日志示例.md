@@ -1,9 +1,10 @@
 ---
 author: liualexiang
 title: 使用开源方案来分析Azure NSG flow log
-layout: post
+layout: article
 date: 2021-01-01 00:00:00 +0800
 ---
+
 
 
 
@@ -231,4 +232,4 @@ X-Axis 也很重要，决定了数据聚合的方法，Mode选择Series则按照
 
 
 
-参考文档：https://docs.microsoft.com/zh-cn/azure/network-watcher/network-watcher-read-nsg-flow-logs/docs.microsoft.com/zh-cn/azure/network-watcher/network-watcher-read-nsg-flow-logswork-watcher/network-watcher-read-nsg-flow-logs/docs.microsoft.com/zh-cn/azure/network-watcher/network-watcher-read-nsg-flow-logs
+参考文档：https://docs.microsoft.com/zh-cn/azure/network-watcher/network-watcher-read-nsg-flow-logs/docs.microsoft.com/zh-cn/azure/network-watcher/network-watcher-read-nsg-flow-logswork-watcher/network-watcher-read-nsg-flow-logs/docs.microsoft.com/zh-cn/azure/network-watcher/network-watcher-read-nsg-flow-logsswork-watcher/network-watcher-read-nsg-flow-logs/docs.microsoft.com/zh-cn/azure/network-watcher/network-watcher-read-nsg-flow-logs

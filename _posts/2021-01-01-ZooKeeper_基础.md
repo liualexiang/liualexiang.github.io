@@ -1,9 +1,10 @@
 ---
 author: liualexiang
 title: ZooKeeper Basic 部署文档
-layout: post
+layout: article
 date: 2021-01-01 00:00:00 +0800
 ---
+
 
 - [ZooKeeper Basic 部署文档](#zookeeper-basic-部署文档)
   - [分布式系统常见的问题](#分布式系统常见的问题)
@@ -92,6 +93,20 @@ observer 的机器不参与选举，但提供了水平扩展功能(选举也会�
 
 
 �署成 **单数** 节点模式
+
+
+
+
+
+
+�此 zookeeper 要部署成 **单数** 节点模式
+
+
+
+
+
+
+��署成 **单数** 节点模式
 
 
 

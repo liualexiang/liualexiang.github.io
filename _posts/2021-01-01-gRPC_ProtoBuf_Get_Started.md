@@ -1,9 +1,10 @@
 ---
 author: liualexiang
 title: 有关gRPC和protobuf的理解
-layout: post
+layout: article
 date: 2021-01-01 00:00:00 +0800
 ---
+
 
 
 
@@ -114,6 +115,11 @@ if __name__ == '__main__':
 本次测试参考了下文：https://www.jianshu.com/p/43fdfeb105ff?from=timeline&isappinstalled=0
 
 //www.jianshu.com/p/43fdfeb105ff?from=timeline&isappinstalled=0
+
+43fdfeb105ff?from=timeline&isappinstalled=0
+
+//www.jianshu.com/p/43fdfeb105ff?from=timeline&isappinstalled=0
+
 
 43fdfeb105ff?from=timeline&isappinstalled=0
 

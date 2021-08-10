@@ -1,9 +1,10 @@
 ---
 author: liualexiang
 title: Terraform 初步学习手册
-layout: post
+layout: article
 date: 2021-01-01 00:00:00 +0800
 ---
+
 
 
 
@@ -287,6 +288,16 @@ enabled": true,
         }
 
 ```
+       "liveIndexing": true
+        }
+
+```
+enabled": true,
+        "liveIndexing": true
+        }
+
+```
+
        "liveIndexing": true
         }
 

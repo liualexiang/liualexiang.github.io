@@ -1,9 +1,10 @@
 ---
 author: liualexiang
 title: 介绍
-layout: post
+layout: article
 date: 2021-01-01 00:00:00 +0800
 ---
+
 
 
 
@@ -190,5 +191,7 @@ $ kubectl create deployment nginxtest --image=nginx --replicas=3
 error: failed to create deployment: deployments.apps is forbidden: User "xiang" cannot create resource "deployments" in API group "apps" in the namespace "default"
 ```roup "apps" in the namespace "default"
 ```PI group "apps" in the namespace "default"
+```roup "apps" in the namespace "default"
+````PI group "apps" in the namespace "default"
 ```roup "apps" in the namespace "default"
 ```

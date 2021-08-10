@@ -1,9 +1,10 @@
 ---
 author: liualexiang
 title: LUKS 介绍
-layout: post
+layout: article
 date: 2021-01-01 00:00:00 +0800
 ---
+
 
 
 
@@ -85,5 +86,8 @@ cryptsetup luksFormat --help
 https://wiki.archlinux.org/index.php/Dm-crypt
 https://gitlab.com/cryptsetup/cryptsetup/wikis/FrequentlyAskedQuestions
 etup/cryptsetup/wikis/FrequentlyAskedQuestions
+tup/cryptsetup/wikis/FrequentlyAskedQuestions
+etup/cryptsetup/wikis/FrequentlyAskedQuestions
+
 tup/cryptsetup/wikis/FrequentlyAskedQuestions
 etup/cryptsetup/wikis/FrequentlyAskedQuestions

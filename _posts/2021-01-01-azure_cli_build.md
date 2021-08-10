@@ -1,9 +1,10 @@
 ---
 author: liualexiang
 title: 通过源码build azure cli
-layout: post
+layout: article
 date: 2021-01-01 00:00:00 +0800
 ---
+
 
 
 
@@ -44,5 +45,7 @@ pip install azdev
 az cdn custom-domain enable-https --profile-name xiangliums --endpoint-name xiangliucdn --name cdn-liuxianms-com --resource-group xiangliu_csa --user-cert-group-name xiangliu_csa --user-cert-protocol-type sni --user-cert-vault-name xiangkeys --user-cert-secret-name selfweb --user-cert-secret-version e87d7edae7644c499af14077771f1bee --user-cert-subscription-id 5fb605ab-c16c-4184-8a02-fee38cc11b8c
 ```r-cert-subscription-id 5fb605ab-c16c-4184-8a02-fee38cc11b8c
 ```on-id 5fb605ab-c16c-4184-8a02-fee38cc11b8c
+```r-cert-subscription-id 5fb605ab-c16c-4184-8a02-fee38cc11b8c
+````on-id 5fb605ab-c16c-4184-8a02-fee38cc11b8c
 ```r-cert-subscription-id 5fb605ab-c16c-4184-8a02-fee38cc11b8c
 ```
